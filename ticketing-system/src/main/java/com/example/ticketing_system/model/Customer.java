@@ -1,5 +1,6 @@
 package com.example.ticketing_system.model;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,15 +11,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Getter
-@Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Getter
+@Setter
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
+
+    private int customerRetrievalRate;
+
+
 
 }

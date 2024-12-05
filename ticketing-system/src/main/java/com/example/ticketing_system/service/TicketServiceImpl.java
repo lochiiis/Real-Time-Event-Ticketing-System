@@ -50,7 +50,4 @@ public class TicketServiceImpl implements TicketService {
         return ticketRepository.count();
     }
 
-
-
-
 }

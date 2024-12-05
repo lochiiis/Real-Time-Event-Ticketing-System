@@ -17,10 +17,12 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
+
     @PostMapping("/addTickets")
     public Ticket addTicket(@RequestBody Ticket ticket) {
         return ticketService.addTicket(ticket);
     }
+
 
     @PostMapping("/sellTicket/{id}")
     public String sellTicket(@PathVariable int id) {
@@ -32,10 +34,12 @@ public class TicketController {
         }
     }
 
+
     @GetMapping("/tickets")
     public List<Ticket> getAvailableTickets() {
         return ticketService.getAvailableTickets();
     }
+
 
     @GetMapping("/ticketCount")
     public long getTicketCount() {

@@ -18,5 +18,11 @@ public class Vendor {
     @Id
     private int vendorId;
 
+    private int ticketReleaseRate;
+
+
+
+
+
 
 }

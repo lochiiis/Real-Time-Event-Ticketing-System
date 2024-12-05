@@ -21,4 +21,5 @@ public class Ticket {
     private String eventName;
     private boolean isSold;
 
+
 }
