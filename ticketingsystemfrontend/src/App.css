@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+.configform{
+  margin: 40px;
+  height: 50vh;
+  background-color: rgb(179, 179, 179);
+}
+
+.configform h2{
+ color: rgb(0, 0, 0);
+ padding-top: 20px;
+
+}
+
+

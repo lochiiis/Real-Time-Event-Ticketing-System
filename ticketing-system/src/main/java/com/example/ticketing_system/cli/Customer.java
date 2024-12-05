@@ -15,14 +15,14 @@ public class Customer implements Runnable {
 
     @Override
     public void run() {
-        while(true){
-            try{
-                Thread.sleep(retrievalInterval*1000);
+        try{
+            while (true) {
                 ticketPool.removeTicket(customerId);
-            } catch (InterruptedException e) {
-                System.out.println("Customer interrupted");
-                break;
+                Thread.sleep(retrievalInterval*1000);
             }
+        }catch (InterruptedException e){
+            Thread.currentThread().interrupt();
+            System.out.println("Customer interrupted");
         }
     }
 }

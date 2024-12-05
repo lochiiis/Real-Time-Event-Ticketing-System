@@ -16,14 +16,17 @@ public class TicketingSystemCLI {
                 // Taking configuration inputs
                 System.out.print("Enter Total Number of Tickets: ");
                 int totalTickets = input.nextInt();
+
                 System.out.print("Enter Ticket Release Rate (tickets/sec): ");
                 int ticketReleaseRate = input.nextInt();
+
                 System.out.print("Enter Customer Retrieval Rate (tickets/sec): ");
                 int customerRetrievalRate = input.nextInt();
+
                 System.out.print("Enter Maximum Ticket Capacity: ");
                 int maxTicketCapacity = input.nextInt();
 
-                if (totalTickets > 0 && ticketReleaseRate > 0 && customerRetrievalRate > 0 && maxTicketCapacity >= totalTickets) {
+                if (totalTickets > 0 && ticketReleaseRate > 0 && customerRetrievalRate > 0 && maxTicketCapacity >0) {
                     //save configurations
                     config =new Configuration(totalTickets, ticketReleaseRate, customerRetrievalRate, maxTicketCapacity);
                     try {
@@ -48,29 +51,16 @@ public class TicketingSystemCLI {
         String option=input.next();
         if(option.equals("y")){
 
-            for(int i = 1; i <= 5; i++) {
-                Thread vendorThread = new Thread(new Vendor(i, 2, config.getTicketReleaseRate(), ticketPool));
+            for (int i = 0; i < 5; i++) {
+                Thread vendorThread = new Thread(new Vendor(i,2,config.getTicketReleaseRate(),ticketPool));
                 vendorThread.start();
             }
 
-            // Array of customers
-            for(int i = 1; i <= 5; i++) {
-                Thread customerThread = new Thread(new Customer(i, config.getCustomerRetrievalRate(), ticketPool));
+            for (int i = 0; i < 5; i++) {
+                Thread customerThread = new Thread(new Customer(i,config.getCustomerRetrievalRate(),ticketPool));
                 customerThread.start();
             }
 
-//            Vendor[] vendors=new Vendor[5];  //Array of vendors
-//            for (int i = 0; i < vendors.length; i++) {
-//                vendors[i]=new Vendor(i+2,2, config.getTicketReleaseRate(),ticketPool);
-//                Thread vendorThread=new Thread(vendors[i]);
-//                vendorThread.start();
-//            }
-
-//            Customer[] customers=new Customer[5];//Array of customers
-//            for (int i = 0; i < 5; i++) {
-//                customers[i]=new Customer(config.getCustomerRetrievalRate(),ticketPool));
-//                customerThread.start();
-//            }
 
         }else if (option.equals("n")) {
             System.out.println("System exiting...");
@@ -80,11 +70,5 @@ public class TicketingSystemCLI {
             System.out.println("Invalid input exiting system");
         }
 
-
-
-
-
-
-
-        }
     }
+}

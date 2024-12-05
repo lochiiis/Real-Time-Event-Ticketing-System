@@ -1,56 +1,70 @@
 package com.example.ticketing_system.cli;
 
+import com.example.ticketing_system.model.Ticket;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 
 public class TicketPool {
-    private final List<String> ticketList = Collections.synchronizedList(new ArrayList<>());
-    private final int maxCapacity;
+    private final List<Integer> ticketList = Collections.synchronizedList(new LinkedList<>());
+    private int maxCapacity;
     private final Random random = new Random();
-    private final AtomicInteger ticketIdCounter = new AtomicInteger(1); // Thread-safe counter
+    private final int totalTickets;
+    private int totalTicketsAdded = 0;
 
 
-    public TicketPool(int maxCapacity,int totalTickets) {
+    public TicketPool(int maxCapacity, int totalTickets) {
         this.maxCapacity = maxCapacity;
-
-        //preload tickets
-        synchronized (ticketList) {
-            for(int i = 0; i < totalTickets && ticketList.size()< maxCapacity; i++) {
-                String ticket="TicketId:"+ ticketIdCounter.getAndIncrement();
-                ticketList.add(ticket);
-            }
-        }
+        this.totalTickets = totalTickets;
     }
 
-
-
-    public void addTicket(int num,int vendorId){
+    int count=0;
+    public void addTicket(int ticketCount, int vendorId){
         synchronized (ticketList) {
-            for(int i=0; i<num; i++){
-                if(ticketList.size() < maxCapacity){
-                    String ticket="TicketId:" + ticketIdCounter.getAndIncrement();
-                    ticketList.add(ticket);
-                    System.out.println("vendor-"+vendorId+" has added "+ ticket +" to the pool. Current size is " +ticketList.size());
-//                    System.out.println(Arrays.toString(ticketList.toArray()));
-                }else{
+            try{
+                while(ticketList.size()+ticketCount > maxCapacity || totalTicketsAdded + ticketCount > totalTickets){ //if the vendor wants to add tickets and the list exceeds
+                    if (totalTicketsAdded > totalTickets) {
+                        return; // Exit without waiting, as no more tickets can be added.
+                    }
                     System.out.println("TicketPool capacity reached.Can't add more tickets");
-                    break;
+                    ticketList.wait();
                 }
+                for(int i=0; i<ticketCount;i++){
+                    ticketList.add(1);
+                    count++;
+                    System.out.println(count);
+                }
+                totalTicketsAdded += ticketCount;
+                System.out.println("Vendor"+ vendorId+ " has added "+ ticketCount +" tickets.current size is "+ticketList.size());
+                ticketList.notifyAll();
+            }catch(InterruptedException e){
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted while adding tickets:" + e.getMessage());
             }
         }
+
+
     }
 
     public void removeTicket(int customerId){
         synchronized (ticketList) {
-
-            if(!ticketList.isEmpty()){
+            try{
+                while(ticketList.isEmpty()){
+                    System.out.println("No tickets available. Customer-" + customerId + " is waiting...");
+                    ticketList.wait();
+                }
                 int index = random.nextInt(ticketList.size());
-                String removedTicket=ticketList.remove(index);
-                System.out.println("customer-"+customerId+" has removed "+ removedTicket +" from the pool.Current size is "+ticketList.size());
-            }else{
-                System.out.println("No tickets available to be purchased");
+                ticketList.remove(index);
+                System.out.println("customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size());
+                ticketList.notifyAll();
+
+            }catch (InterruptedException e){
+                Thread.currentThread().interrupt();
+                System.out.println("Thread interrupted while removing tickets:" + e.getMessage());
             }
         }
+
     }
 
 
