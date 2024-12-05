@@ -1,4 +1,4 @@
 package com.example.ticketing_system.model;
 
-public class Configuration {
+public class Vendor {
 }
