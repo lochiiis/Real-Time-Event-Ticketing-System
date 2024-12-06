@@ -1,6 +1,5 @@
 /* Container styling */
 .container {
-    max-width: 500px;
     margin: 50px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -12,6 +11,7 @@
   
   .card {
     padding: 20px;
+    max-width: 400px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -41,7 +41,7 @@
   
 
   .form-control {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -87,79 +87,48 @@
 
 
 
-
   .simulation-container {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  h1 {
+  h1, h3 {
     text-align: center;
-    color: #333;
   }
   
-  .status {
-    background-color: #e9ecef;
+  .config, .status {
+    background: #f8f9fa;
     padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .status p {
-    font-size: 1.2rem;
-    margin: 5px 0;
+    border-radius: 8px;
+    margin: 10px 0;
   }
   
   .controls {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
   
   .controls .btn {
-    padding: 10px 20px;
     margin: 0 10px;
+    padding: 10px 20px;
     font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .controls .btn-success {
-    background-color: #28a745;
-    border: none;
-    color: white;
-  }
-  
-  .controls .btn-danger {
-    background-color: #dc3545;
-    border: none;
-    color: white;
   }
   
   .logs {
-    background-color: #fff;
+    background: #fff;
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .logs ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
   }
   
   .logs li {
     padding: 5px 0;
-    font-size: 0.9rem;
     border-bottom: 1px solid #ddd;
   }
-  
-  .logs li:last-child {
-    border-bottom: none;
-  }
-  
   

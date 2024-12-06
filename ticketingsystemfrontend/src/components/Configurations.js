@@ -15,7 +15,7 @@ function Configurations() {
           </div>
           <div className="inputs">
             <label className="form-label">Ticket Release Rate</label>
-            <input type="number" min={0} id="ticketReleaseRate" className="form-control" placeholder="Tickets/sec" />
+            <input type="number" id="ticketReleaseRate" className="form-control" placeholder="Tickets/sec" />
           </div>
           <div className="inputs">
             <label className="form-label">Customer Retrieval Rate</label>

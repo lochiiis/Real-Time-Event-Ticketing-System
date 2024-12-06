@@ -14,8 +14,12 @@ import java.util.Optional;
 @RequestMapping("/api/tickets")
 public class TicketController {
 
-    @Autowired
-    private TicketService ticketService;
+    private final TicketService ticketService;
+
+    public TicketController(TicketService ticketService) {
+        this.ticketService = ticketService;
+    }
+
 
 
     @PostMapping("/addTickets")

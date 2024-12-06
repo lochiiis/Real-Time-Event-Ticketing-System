@@ -27,7 +27,7 @@ public class TicketPool {
                     if (totalTicketsAdded > totalTickets) {
                         return; // Exit without waiting, as no more tickets can be added.
                     }
-                    System.out.println("TicketPool capacity reached.Can't add more tickets");
+//                    System.out.println("TicketPool capacity reached.Can't add more tickets");
                     ticketList.wait();
                 }
                 for(int i=0; i<ticketCount;i++){
