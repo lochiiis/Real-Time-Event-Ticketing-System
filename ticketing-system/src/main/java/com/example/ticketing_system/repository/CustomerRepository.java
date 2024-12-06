@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @EnableJpaRepositories
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+
 }

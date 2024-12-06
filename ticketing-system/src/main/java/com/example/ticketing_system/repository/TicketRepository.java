@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 @EnableJpaRepositories
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {}
+
