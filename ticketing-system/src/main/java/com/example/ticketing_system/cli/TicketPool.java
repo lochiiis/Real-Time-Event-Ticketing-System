@@ -1,6 +1,6 @@
 package com.example.ticketing_system.cli;
 
-import com.example.ticketing_system.model.Ticket;
+
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -1,10 +1,13 @@
 package com.example.ticketing_system.cli;
 
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.io.Writer;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -14,9 +17,16 @@ public class Configuration {
 
     private static Logger logger;
 
+    @JsonProperty("totalTickets")
     private int totalTickets;
+
+    @JsonProperty("ticketReleaseRate")
     private int ticketReleaseRate;
+
+    @JsonProperty("customerRetrievalRate")
     private int customerRetrievalRate;
+
+    @JsonProperty("maxTicketCapacity")
     private int maxTicketCapacity;
 
 
@@ -28,6 +38,8 @@ public class Configuration {
         this.maxTicketCapacity = maxTicketCapacity;
         writeLogger(); //initialize logger
     }
+
+
 
     public int getTotalTickets() {
         return totalTickets;
@@ -45,9 +57,23 @@ public class Configuration {
         return maxTicketCapacity;
     }
 
+    public void setTotalTickets(int totalTickets) {
+        this.totalTickets = totalTickets;
+    }
 
+    public void setTicketReleaseRate(int ticketReleaseRate) {
+        this.ticketReleaseRate = ticketReleaseRate;
+    }
 
-    public void saveToFile(String filename) {
+    public void setCustomerRetrievalRate(int customerRetrievalRate) {
+        this.customerRetrievalRate = customerRetrievalRate;
+    }
+
+    public void setMaxTicketCapacity(int maxTicketCapacity) {
+        this.maxTicketCapacity = maxTicketCapacity;
+    }
+
+        public void saveToFile(String filename) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(Writer writer = new FileWriter(filename)) {
             gson.toJson(this, writer);
@@ -55,6 +81,10 @@ public class Configuration {
             System.out.println("error in writing to file");
         }
     }
+
+
+
+
 
 
 
