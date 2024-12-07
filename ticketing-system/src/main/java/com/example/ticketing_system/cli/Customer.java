@@ -22,7 +22,7 @@ public class Customer implements Runnable {
             }
         }catch (InterruptedException e){
             Thread.currentThread().interrupt();
-            System.out.println("Customer interrupted");
+            System.out.println("Customer"+ customerId + " interrupted");
         }
     }
 }

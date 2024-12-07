@@ -3,8 +3,8 @@ package com.example.ticketing_system.cli;
 
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
+
 
 public class TicketPool {
     private final List<Integer> ticketList = Collections.synchronizedList(new LinkedList<>());
@@ -12,6 +12,9 @@ public class TicketPool {
     private final Random random = new Random();
     private final int totalTickets;
     private int totalTicketsAdded = 0;
+
+
+    private final List<String> logs = Collections.synchronizedList(new ArrayList<>());
 
 
     public TicketPool(int maxCapacity, int totalTickets) {
@@ -37,10 +40,15 @@ public class TicketPool {
                 }
                 totalTicketsAdded += ticketCount;
                 System.out.println("Vendor"+ vendorId+ " has added "+ ticketCount +" tickets.current size is "+ticketList.size());
+
+                String log = "Vendor" + vendorId + " has added " + ticketCount + " tickets. Current size: " + ticketList.size();
+                logs.add(log);
+
+
                 ticketList.notifyAll();
             }catch(InterruptedException e){
                 Thread.currentThread().interrupt();
-                System.out.println("Thread interrupted while adding tickets:" + e.getMessage());
+//                System.out.println("Vendor"+ vendorId +" interrupted while adding tickets");
             }
         }
 
@@ -56,15 +64,24 @@ public class TicketPool {
                 }
                 int index = random.nextInt(ticketList.size());
                 ticketList.remove(index);
-                System.out.println("customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size());
+               System.out.println("customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size());
+
+                String log = "Customer-" + customerId + " has removed ticketId: " + index + ". Current size: " + ticketList.size();
+                logs.add(log);
+
+
                 ticketList.notifyAll();
 
-            }catch (InterruptedException e){
+            }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                System.out.println("Thread interrupted while removing tickets:" + e.getMessage());
+//                System.out.println("Customer" + customerId + "interrupted while removing tickets");
             }
         }
 
+    }
+
+    public List<String> getLogs() {
+        return new ArrayList<>(logs);
     }
 
 

@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(187, 217, 248);
+  background-color: #ffffff;
+}
+body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome, Edge, and Safari */
 }
 
 code {
