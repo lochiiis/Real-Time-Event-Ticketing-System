@@ -38,18 +38,42 @@ function Configurations() {
     }
   };
 
-  // Poll logs only if simulation is running
-  useEffect(() => {
-    if (!simulationRunning) return; // Only poll when simulation is running
-    const interval = setInterval(() => {
-      axios
-        .get("http://localhost:8080/api/simulation/logs")
-        .then((response) => setLogs(response.data))
-        .catch((error) => console.error("Error fetching logs:", error));
-    }, 2000);
+  // //short polling-- poll logs only if simulation is running
+  // useEffect(() => {
+  //   if (!simulationRunning) return; // Only poll when simulation is running
+  //   const interval = setInterval(() => {
+  //     axios
+  //       .get("http://localhost:8080/api/simulation/logs")
+  //       .then((response) => setLogs(response.data))
+  //       .catch((error) => console.error("Error fetching logs:", error));
+  //   }, 2000);
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount or when simulation stops
-  }, [simulationRunning]); // Re-run this effect when simulationRunning changes
+  //   return () => clearInterval(interval); // Cleanup interval on component unmount or when simulation stops
+  // }, [simulationRunning]); // Re-run this effect when simulationRunning changes
+
+
+  const fetchLogs = async () => {
+    if (!simulationRunning) return; // Exit if simulation is stopped
+    try {
+      const response = await axios.get("http://localhost:8080/api/simulation/logs");
+      setLogs(response.data); // Update logs with the new data
+      fetchLogs(); // Recursively call fetchLogs to keep polling
+    } catch (error) {
+      console.error("Error fetching logs:", error);
+      setTimeout(fetchLogs, 2000); // Retry after 2 seconds in case of an error
+    }
+  };
+
+    // Long polling - Initiates fetchLogs when simulation starts
+    useEffect(() => {
+      if (simulationRunning) {
+        fetchLogs();
+      }
+      return () => {
+        setLogs([]); // Clear logs when simulation stops
+      };
+    }, [simulationRunning]);
+
 
 
   return (
@@ -58,35 +82,35 @@ function Configurations() {
         <h2>Configurations</h2>
         <form>
           <input
-            id="totalTickets"
+            type="text" id="totalTickets" placeholder="Total Tickets"
             value={config.totalTickets}
             onChange={handleChange}
-            placeholder="Total Tickets"
           />
+
           <input
-            id="ticketReleaseRate"
+            type="text" id="ticketReleaseRate"  placeholder="Release Rate"
             value={config.ticketReleaseRate}
             onChange={handleChange}
-            placeholder="Release Rate"
           />
-          <input
-            id="customerRetrievalRate"
+
+          <input type="text" id="customerRetrievalRate" placeholder="Retrieval Rate"
             value={config.customerRetrievalRate}
             onChange={handleChange}
-            placeholder="Retrieval Rate"
           />
-          <input
-            id="maxTicketCapacity"
+
+          <input type="text" id="maxTicketCapacity" placeholder="Max Capacity"
             value={config.maxTicketCapacity}
             onChange={handleChange}
-            placeholder="Max Capacity"
           />
+
           <button type="button" onClick={startSimulation}>
             Start Simulation
           </button>
+
           <button type="button" onClick={stopSimulation}>
             Stop Simulation
           </button>
+
         </form>
       </div>
 

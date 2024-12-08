@@ -30,19 +30,23 @@ public class TicketingSystemCLI {
                     //initialize configuration object
                     config =new Configuration(totalTickets, ticketReleaseRate, customerRetrievalRate, maxTicketCapacity);
 
-                    System.out.println(config.getMaxTicketCapacity());
+
 
                     config.saveToFile("config.json");
+
+                    config.writeLogs("\n----------------------------------------------------------------------\n");
                     config.writeLogs("Total Tickets: " + totalTickets);
                     config.writeLogs("Ticket Release Rate: " + ticketReleaseRate);
                     config.writeLogs("Customer Retrieval Rate: " + customerRetrievalRate);
                     config.writeLogs("Maximum Ticket Capacity: " + maxTicketCapacity);
+                    config.writeLogs("\n----------------------------------------------------------------------\n");
+
 
                     try {
-                        System.out.println("Successfully saved config to file");
+                        System.out.println("Successfully saved configurations to file");
                         break;
                     } catch (Exception e) {
-                        System.out.print("Error while saving config to file");
+                        System.out.print("Error while saving configurations to file");
                     }
                 }else {
                     System.out.println("Invalid input. Ensure all values are positive and Max Capacity >= Total Tickets");

@@ -12,6 +12,8 @@ public class TicketPool {
     private final int totalTickets;
     private int totalTicketsAdded = 0;
 
+    private int ticketId=1;
+
     Configuration config = new Configuration();
 
     private final List<String> logs = Collections.synchronizedList(new ArrayList<>());
@@ -22,7 +24,7 @@ public class TicketPool {
         this.totalTickets = totalTickets;
     }
 
-    int count=0;
+//    int count=0;
     public void addTicket(int ticketCount, int vendorId){
         synchronized (ticketList) {
             try{
@@ -34,9 +36,11 @@ public class TicketPool {
                     ticketList.wait();
                 }
                 for(int i=0; i<ticketCount;i++){
-                    ticketList.add(1);
-                    count++;
-                    System.out.println(count);
+                    ticketList.add(ticketId++);
+
+                    System.out.println(ticketList);
+//                    count++;
+//                    System.out.println(count);
                 }
                 totalTicketsAdded += ticketCount;
 
@@ -64,9 +68,11 @@ public class TicketPool {
                     ticketList.wait();
                 }
                 int index = random.nextInt(ticketList.size());
+                int removedTicketId = ticketList.get(index); // if remove this gives index out of bound
+
                 ticketList.remove(index);
 
-               String outputMsg= "customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size();
+               String outputMsg= "customer-"+customerId+" has removed ticketId:"+ removedTicketId +" from the pool.Current size is "+ticketList.size();
                System.out.println(outputMsg);
                config.writeLogs(outputMsg);
                logs.add(outputMsg);

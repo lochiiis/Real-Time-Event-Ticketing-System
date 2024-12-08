@@ -86,18 +86,13 @@ public class Configuration {
 
 
 
-    private final String LOG_FILE ="TicketingSystemLogs.txt";
-    private boolean configurationLogged = false; // Flag to ensure configurations are logged only once
 
 
     public void writeLogs(String msg) {
         String timeStamp= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        try(BufferedWriter writer= new BufferedWriter(new FileWriter(LOG_FILE,true))){
-            if (!configurationLogged) {
-                writer.write("\n----------------------------------------------------------------------\n");
-                configurationLogged = true; // Mark configurations as logged
-            }
+        try(BufferedWriter writer= new BufferedWriter(new FileWriter("TicketingSystemLogs.txt",true))){
+
            writer.write(timeStamp+" - " +msg +"\n");
         } catch (IOException e) {
             System.out.println("Error in writing to file");
