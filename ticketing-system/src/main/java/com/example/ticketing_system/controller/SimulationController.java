@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 public class SimulationController {
 
-    @Autowired
+    @Autowired  //class class connect
     private SimulationService simulationService;
 
     @PostMapping("/start")

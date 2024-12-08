@@ -19,9 +19,10 @@ function Configurations() {
 
   const startSimulation = async () => {
     try {
+      setLogs([]); // Clear logs on the frontend
       await axios.post("http://localhost:8080/api/simulation/start", config);
       setSimulationRunning(true); // Set simulation running state to true
-      alert("Simulation started!");
+      // alert("Simulation started!");
     } catch (error) {
       alert("Error starting simulation: " + error.message);
     }

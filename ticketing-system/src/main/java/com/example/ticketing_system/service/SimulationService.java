@@ -18,9 +18,14 @@ public class SimulationService {
 
     // Start simulation and initialize ticket pool, vendors, and customers
     public void startSimulation(int totalTickets, int ticketReleaseRate, int customerRetrievalRate, int maxCapacity) {
-        if (running) return;
+        if (running){
+            stopSimulation(); // Stop any ongoing simulation before starting a new one
+        }
 
         ticketPool = new TicketPool(maxCapacity, totalTickets);
+
+        // Clear logs before starting a new simulation
+        ticketPool.clearLogs();
 
         // Start vendor threads
         for (int i = 0; i < 5; i++) {
@@ -50,15 +55,16 @@ public class SimulationService {
             thread.interrupt();
         }
 
+        // clear thread lists and mark simulation as stopped
         vendorThreads.clear();
         customerThreads.clear();
         running = false;
     }
 
-    // Fetch logs if ticketPool is initialized
+    // fetch logs if ticketPool is initialized
     public List<String> getSimulationLogs() {
         if (ticketPool == null) {
-            return new ArrayList<>(); // Return empty if ticketPool is not initialized
+            return new ArrayList<>(); // return empty if ticketPool is not initialized
         }
         return ticketPool.getLogs();
     }

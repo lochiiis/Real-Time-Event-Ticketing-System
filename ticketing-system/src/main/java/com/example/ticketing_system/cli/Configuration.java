@@ -2,37 +2,42 @@ package com.example.ticketing_system.cli;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import lombok.Setter;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
 import java.io.Writer;
-import java.util.logging.Logger;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class Configuration {
 
-    private static Logger logger;
+
 
     private int totalTickets;
 
+
     private int ticketReleaseRate;
+
 
     private int customerRetrievalRate;
 
+
     private int maxTicketCapacity;
 
-//    public Configuration() {
-//    }
+
+    public Configuration() {
+    }
 
     public Configuration(int totalTickets, int ticketReleaseRate, int customerRetrievalRate, int maxTicketCapacity) {
         this.totalTickets = totalTickets;
         this.ticketReleaseRate = ticketReleaseRate;
         this.customerRetrievalRate = customerRetrievalRate;
         this.maxTicketCapacity = maxTicketCapacity;
-//        writeLogger(); //initialize logger
     }
-
 
 
     public int getTotalTickets() {
@@ -67,7 +72,7 @@ public class Configuration {
         this.maxTicketCapacity = maxTicketCapacity;
     }
 
-        public void saveToFile(String filename) {
+    public void saveToFile(String filename) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(Writer writer = new FileWriter(filename)) {
             gson.toJson(this, writer);
@@ -81,30 +86,25 @@ public class Configuration {
 
 
 
+    private final String LOG_FILE ="TicketingSystemLogs.txt";
+    private boolean configurationLogged = false; // Flag to ensure configurations are logged only once
 
-//    private void writeLogger() {
-//        if(logger == null) {
-//            try{
-//                logger=Logger.getLogger("TicketingSystemLogger");
-//                FileHandler fileHandler = new FileHandler("TicketingSystemLog.txt", true);
-//                fileHandler.setFormatter(new SimpleFormatter(){
-//                    @Override
-//                    public String format(java.util.logging.LogRecord record) {
-//                        return record.getMessage() + System.lineSeparator();
-//                    }
-//                });
-//                logger.addHandler(fileHandler);
-//                logger.setUseParentHandlers(false); //prevent console logging
-//                logger.info("Logger initialized");
-//            }catch(IOException e){
-//                System.err.println("error in logging file"+e.getMessage());
-//            }
-//        }
-//    }
 
-//    public static Logger getLogger() {
-//        return logger;
-//    }
+    public void writeLogs(String msg) {
+        String timeStamp= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+        try(BufferedWriter writer= new BufferedWriter(new FileWriter(LOG_FILE,true))){
+            if (!configurationLogged) {
+                writer.write("\n----------------------------------------------------------------------\n");
+                configurationLogged = true; // Mark configurations as logged
+            }
+           writer.write(timeStamp+" - " +msg +"\n");
+        } catch (IOException e) {
+            System.out.println("Error in writing to file");
+        }
+    }
+
+
 
 
 

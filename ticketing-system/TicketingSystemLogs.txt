@@ -1,0 +1,136 @@
+
+----------------------------------------------------------------------
+2024-12-08 09:01:13 - Vendor0 has added 2 tickets. Current size: 2
+2024-12-08 09:01:13 - customer-4 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:01:13 - customer-3 has removed ticketId:0 from the pool.Current size is 0
+2024-12-08 09:01:13 - Vendor4 has added 2 tickets. Current size: 2
+2024-12-08 09:01:13 - Vendor2 has added 2 tickets. Current size: 4
+2024-12-08 09:01:13 - customer-0 has removed ticketId:0 from the pool.Current size is 3
+2024-12-08 09:01:13 - customer-1 has removed ticketId:2 from the pool.Current size is 2
+2024-12-08 09:01:13 - customer-2 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:01:13 - Vendor1 has added 2 tickets. Current size: 3
+2024-12-08 09:01:13 - Vendor3 has added 2 tickets. Current size: 5
+2024-12-08 09:01:14 - customer-2 has removed ticketId:3 from the pool.Current size is 4
+2024-12-08 09:01:14 - customer-4 has removed ticketId:2 from the pool.Current size is 3
+2024-12-08 09:01:14 - customer-3 has removed ticketId:1 from the pool.Current size is 2
+2024-12-08 09:01:14 - Vendor4 has added 2 tickets. Current size: 4
+2024-12-08 09:01:14 - customer-0 has removed ticketId:0 from the pool.Current size is 3
+2024-12-08 09:01:14 - customer-1 has removed ticketId:0 from the pool.Current size is 2
+2024-12-08 09:01:14 - Vendor1 has added 2 tickets. Current size: 4
+2024-12-08 09:01:15 - customer-2 has removed ticketId:3 from the pool.Current size is 3
+2024-12-08 09:01:15 - Vendor2 has added 2 tickets. Current size: 5
+2024-12-08 09:01:15 - customer-1 has removed ticketId:4 from the pool.Current size is 4
+2024-12-08 09:01:15 - customer-4 has removed ticketId:3 from the pool.Current size is 3
+2024-12-08 09:01:15 - Vendor4 has added 2 tickets. Current size: 5
+2024-12-08 09:01:16 - customer-3 has removed ticketId:1 from the pool.Current size is 4
+2024-12-08 09:01:16 - customer-0 has removed ticketId:2 from the pool.Current size is 3
+2024-12-08 09:01:16 - Vendor0 has added 2 tickets. Current size: 5
+2024-12-08 09:01:16 - customer-2 has removed ticketId:1 from the pool.Current size is 4
+2024-12-08 09:01:17 - customer-0 has removed ticketId:0 from the pool.Current size is 3
+2024-12-08 09:01:17 - customer-3 has removed ticketId:1 from the pool.Current size is 2
+2024-12-08 09:01:17 - customer-1 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:01:17 - customer-4 has removed ticketId:0 from the pool.Current size is 0
+
+----------------------------------------------------------------------
+2024-12-08 09:11:44 - Vendor0 has added 2 tickets. Current size: 2
+2024-12-08 09:11:44 - customer-4 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:11:44 - customer-3 has removed ticketId:0 from the pool.Current size is 0
+2024-12-08 09:11:44 - Vendor4 has added 2 tickets. Current size: 2
+2024-12-08 09:11:44 - Vendor3 has added 2 tickets. Current size: 4
+2024-12-08 09:11:44 - Vendor2 has added 2 tickets. Current size: 6
+2024-12-08 09:11:44 - Vendor1 has added 2 tickets. Current size: 8
+2024-12-08 09:11:44 - customer-0 has removed ticketId:6 from the pool.Current size is 7
+2024-12-08 09:11:44 - customer-1 has removed ticketId:5 from the pool.Current size is 6
+2024-12-08 09:11:44 - customer-2 has removed ticketId:2 from the pool.Current size is 5
+2024-12-08 09:11:45 - Vendor4 has added 2 tickets. Current size: 7
+2024-12-08 09:11:45 - Vendor0 has added 2 tickets. Current size: 9
+2024-12-08 09:11:46 - customer-2 has removed ticketId:4 from the pool.Current size is 8
+2024-12-08 09:11:46 - Vendor3 has added 2 tickets. Current size: 10
+2024-12-08 09:11:46 - customer-3 has removed ticketId:2 from the pool.Current size is 9
+2024-12-08 09:11:46 - customer-4 has removed ticketId:0 from the pool.Current size is 8
+2024-12-08 09:11:46 - customer-0 has removed ticketId:3 from the pool.Current size is 7
+2024-12-08 09:11:46 - customer-1 has removed ticketId:6 from the pool.Current size is 6
+2024-12-08 09:11:46 - Vendor1 has added 2 tickets. Current size: 8
+2024-12-08 09:11:46 - Vendor2 has added 2 tickets. Current size: 10
+2024-12-08 09:11:48 - customer-2 has removed ticketId:3 from the pool.Current size is 9
+2024-12-08 09:11:48 - customer-4 has removed ticketId:5 from the pool.Current size is 8
+2024-12-08 09:11:48 - customer-3 has removed ticketId:1 from the pool.Current size is 7
+2024-12-08 09:11:48 - customer-0 has removed ticketId:1 from the pool.Current size is 6
+2024-12-08 09:11:48 - customer-1 has removed ticketId:4 from the pool.Current size is 5
+2024-12-08 09:11:50 - customer-2 has removed ticketId:3 from the pool.Current size is 4
+2024-12-08 09:11:50 - customer-3 has removed ticketId:2 from the pool.Current size is 3
+2024-12-08 09:11:50 - customer-4 has removed ticketId:2 from the pool.Current size is 2
+2024-12-08 09:11:50 - customer-1 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:11:50 - customer-0 has removed ticketId:0 from the pool.Current size is 0
+
+----------------------------------------------------------------------
+2024-12-08 09:12:02 - Vendor0 has added 2 tickets. Current size: 2
+2024-12-08 09:12:02 - customer-2 has removed ticketId:0 from the pool.Current size is 1
+2024-12-08 09:12:02 - customer-1 has removed ticketId:0 from the pool.Current size is 0
+2024-12-08 09:12:02 - Vendor4 has added 2 tickets. Current size: 2
+2024-12-08 09:12:02 - Vendor3 has added 2 tickets. Current size: 4
+2024-12-08 09:12:02 - Vendor2 has added 2 tickets. Current size: 6
+2024-12-08 09:12:02 - Vendor1 has added 2 tickets. Current size: 8
+2024-12-08 09:12:02 - customer-0 has removed ticketId:1 from the pool.Current size is 7
+2024-12-08 09:12:02 - customer-3 has removed ticketId:2 from the pool.Current size is 6
+2024-12-08 09:12:02 - customer-4 has removed ticketId:1 from the pool.Current size is 5
+2024-12-08 09:12:03 - Vendor3 has added 2 tickets. Current size: 7
+2024-12-08 09:12:03 - Vendor4 has added 2 tickets. Current size: 9
+2024-12-08 09:12:03 - customer-1 has removed ticketId:7 from the pool.Current size is 8
+2024-12-08 09:12:03 - customer-2 has removed ticketId:2 from the pool.Current size is 7
+2024-12-08 09:12:03 - Vendor0 has added 2 tickets. Current size: 9
+2024-12-08 09:12:03 - customer-4 has removed ticketId:7 from the pool.Current size is 8
+2024-12-08 09:12:03 - customer-3 has removed ticketId:0 from the pool.Current size is 7
+2024-12-08 09:12:03 - customer-0 has removed ticketId:5 from the pool.Current size is 6
+2024-12-08 09:12:03 - Vendor1 has added 2 tickets. Current size: 8
+2024-12-08 09:12:03 - Vendor2 has added 2 tickets. Current size: 10
+2024-12-08 09:12:04 - customer-2 has removed ticketId:9 from the pool.Current size is 9
+2024-12-08 09:12:04 - customer-1 has removed ticketId:3 from the pool.Current size is 8
+2024-12-08 09:12:04 - Vendor3 has added 2 tickets. Current size: 10
+2024-12-08 09:12:04 - customer-0 has removed ticketId:5 from the pool.Current size is 9
+2024-12-08 09:12:04 - customer-4 has removed ticketId:4 from the pool.Current size is 8
+2024-12-08 09:12:04 - customer-3 has removed ticketId:1 from the pool.Current size is 7
+2024-12-08 09:12:04 - Vendor2 has added 2 tickets. Current size: 9
+2024-12-08 09:12:05 - customer-0 has removed ticketId:4 from the pool.Current size is 8
+2024-12-08 09:12:05 - Vendor1 has added 2 tickets. Current size: 10
+2024-12-08 09:12:05 - customer-2 has removed ticketId:6 from the pool.Current size is 9
+2024-12-08 09:12:05 - customer-1 has removed ticketId:3 from the pool.Current size is 8
+2024-12-08 09:12:05 - Vendor2 has added 2 tickets. Current size: 10
+2024-12-08 09:12:05 - customer-3 has removed ticketId:3 from the pool.Current size is 9
+2024-12-08 09:12:05 - customer-4 has removed ticketId:2 from the pool.Current size is 8
+2024-12-08 09:12:05 - Vendor0 has added 2 tickets. Current size: 10
+2024-12-08 09:12:06 - customer-1 has removed ticketId:0 from the pool.Current size is 9
+2024-12-08 09:12:06 - customer-0 has removed ticketId:2 from the pool.Current size is 8
+2024-12-08 09:12:06 - customer-2 has removed ticketId:0 from the pool.Current size is 7
+2024-12-08 09:12:06 - Vendor1 has added 2 tickets. Current size: 9
+2024-12-08 09:12:06 - customer-3 has removed ticketId:1 from the pool.Current size is 8
+2024-12-08 09:12:06 - Vendor3 has added 2 tickets. Current size: 10
+2024-12-08 09:12:06 - customer-4 has removed ticketId:8 from the pool.Current size is 9
+2024-12-08 09:12:07 - customer-3 has removed ticketId:8 from the pool.Current size is 8
+2024-12-08 09:12:07 - Vendor2 has added 2 tickets. Current size: 10
+2024-12-08 09:12:07 - customer-1 has removed ticketId:3 from the pool.Current size is 9
+2024-12-08 09:12:07 - customer-0 has removed ticketId:8 from the pool.Current size is 8
+2024-12-08 09:12:07 - customer-2 has removed ticketId:0 from the pool.Current size is 7
+2024-12-08 09:12:07 - Vendor1 has added 2 tickets. Current size: 9
+2024-12-08 09:12:07 - customer-4 has removed ticketId:3 from the pool.Current size is 8
+2024-12-08 09:12:07 - Vendor3 has added 2 tickets. Current size: 10
+2024-12-08 09:12:08 - customer-3 has removed ticketId:9 from the pool.Current size is 9
+2024-12-08 09:12:08 - customer-2 has removed ticketId:2 from the pool.Current size is 8
+2024-12-08 09:12:08 - customer-0 has removed ticketId:1 from the pool.Current size is 7
+2024-12-08 09:12:08 - customer-1 has removed ticketId:6 from the pool.Current size is 6
+2024-12-08 09:12:08 - Vendor2 has added 2 tickets. Current size: 8
+2024-12-08 09:12:08 - Vendor0 has added 2 tickets. Current size: 10
+2024-12-08 09:12:08 - customer-4 has removed ticketId:2 from the pool.Current size is 9
+2024-12-08 09:12:09 - customer-3 has removed ticketId:3 from the pool.Current size is 8
+2024-12-08 09:12:09 - Vendor4 has added 2 tickets. Current size: 10
+2024-12-08 09:12:09 - customer-0 has removed ticketId:6 from the pool.Current size is 9
+2024-12-08 09:12:09 - customer-1 has removed ticketId:1 from the pool.Current size is 8
+2024-12-08 09:12:09 - customer-2 has removed ticketId:4 from the pool.Current size is 7
+2024-12-08 09:12:09 - Vendor3 has added 2 tickets. Current size: 9
+2024-12-08 09:12:09 - customer-4 has removed ticketId:7 from the pool.Current size is 8
+2024-12-08 09:12:09 - Vendor1 has added 2 tickets. Current size: 10
+2024-12-08 09:12:10 - customer-2 has removed ticketId:7 from the pool.Current size is 9
+2024-12-08 09:12:10 - customer-3 has removed ticketId:4 from the pool.Current size is 8
+2024-12-08 09:12:10 - customer-0 has removed ticketId:5 from the pool.Current size is 7
+2024-12-08 09:12:10 - customer-1 has removed ticketId:6 from the pool.Current size is 6
+2024-12-08 09:12:10 - customer-4 has removed ticketId:0 from the pool.Current size is 5

@@ -1,10 +1,6 @@
 package com.example.ticketing_system;
 
-import com.example.ticketing_system.cli.Configuration;
-import com.example.ticketing_system.cli.Customer;
-import com.example.ticketing_system.cli.TicketPool;
-import com.example.ticketing_system.cli.Vendor;
-import com.example.ticketing_system.service.SimulationService;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

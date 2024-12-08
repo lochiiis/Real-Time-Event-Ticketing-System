@@ -3,7 +3,6 @@ package com.example.ticketing_system.cli;
 
 
 import java.util.*;
-import java.util.logging.Logger;
 
 
 public class TicketPool {
@@ -13,6 +12,7 @@ public class TicketPool {
     private final int totalTickets;
     private int totalTicketsAdded = 0;
 
+    Configuration config = new Configuration();
 
     private final List<String> logs = Collections.synchronizedList(new ArrayList<>());
 
@@ -39,10 +39,11 @@ public class TicketPool {
                     System.out.println(count);
                 }
                 totalTicketsAdded += ticketCount;
-                System.out.println("Vendor"+ vendorId+ " has added "+ ticketCount +" tickets.current size is "+ticketList.size());
 
-                String log = "Vendor" + vendorId + " has added " + ticketCount + " tickets. Current size: " + ticketList.size();
-                logs.add(log);
+                String outputMsg = "Vendor" + vendorId + " has added " + ticketCount + " tickets. Current size: " + ticketList.size();
+                System.out.println(outputMsg);
+                config.writeLogs(outputMsg);
+                logs.add(outputMsg);
 
 
                 ticketList.notifyAll();
@@ -64,11 +65,11 @@ public class TicketPool {
                 }
                 int index = random.nextInt(ticketList.size());
                 ticketList.remove(index);
-               System.out.println("customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size());
 
-                String log = "Customer-" + customerId + " has removed ticketId: " + index + ". Current size: " + ticketList.size();
-                logs.add(log);
-
+               String outputMsg= "customer-"+customerId+" has removed ticketId:"+ index +" from the pool.Current size is "+ticketList.size();
+               System.out.println(outputMsg);
+               config.writeLogs(outputMsg);
+               logs.add(outputMsg);
 
                 ticketList.notifyAll();
 
@@ -82,6 +83,11 @@ public class TicketPool {
 
     public List<String> getLogs() {
         return new ArrayList<>(logs);
+    }
+
+    // Clear logs
+    public void clearLogs() {
+        logs.clear();
     }
 
 

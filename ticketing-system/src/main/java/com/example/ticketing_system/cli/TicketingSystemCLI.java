@@ -9,7 +9,7 @@ public class TicketingSystemCLI {
 
         System.out.println("Welcome to Real-Time Event Ticketing System");
 
-        Configuration config;
+        Configuration config=null;
 
         while(true){
             try{
@@ -27,9 +27,17 @@ public class TicketingSystemCLI {
                 int maxTicketCapacity = input.nextInt();
 
                 if (totalTickets > 0 && ticketReleaseRate > 0 && customerRetrievalRate > 0 && maxTicketCapacity >0) {
-                    //save configurations
+                    //initialize configuration object
                     config =new Configuration(totalTickets, ticketReleaseRate, customerRetrievalRate, maxTicketCapacity);
+
+                    System.out.println(config.getMaxTicketCapacity());
+
                     config.saveToFile("config.json");
+                    config.writeLogs("Total Tickets: " + totalTickets);
+                    config.writeLogs("Ticket Release Rate: " + ticketReleaseRate);
+                    config.writeLogs("Customer Retrieval Rate: " + customerRetrievalRate);
+                    config.writeLogs("Maximum Ticket Capacity: " + maxTicketCapacity);
+
                     try {
                         System.out.println("Successfully saved config to file");
                         break;

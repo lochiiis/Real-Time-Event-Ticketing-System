@@ -1,6 +1,8 @@
 {
-  "totalTickets": 150,
-  "ticketReleaseRate": 2,
+  "totalTickets": 20,
+  "ticketReleaseRate": 1,
   "customerRetrievalRate": 1,
-  "maxTicketCapacity": 50
+  "maxTicketCapacity": 50,
+  "LOG_FILE": "TicketingSystemLogs.txt",
+  "configurationLogged": false
 }
