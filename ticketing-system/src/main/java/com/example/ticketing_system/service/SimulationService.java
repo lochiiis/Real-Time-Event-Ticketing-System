@@ -28,14 +28,14 @@ public class SimulationService {
         ticketPool.clearLogs();
 
         // Start vendor threads
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 6; i++) {
             Thread vendorThread = new Thread(new Vendor(i, 2, ticketReleaseRate, ticketPool));
             vendorThreads.add(vendorThread);
             vendorThread.start();
         }
 
         // Start customer threads
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 6; i++) {
             Thread customerThread = new Thread(new Customer(i, customerRetrievalRate, ticketPool));
             customerThreads.add(customerThread);
             customerThread.start();

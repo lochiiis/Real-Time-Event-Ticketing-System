@@ -10,6 +10,7 @@ public class TicketingSystemCLI {
         System.out.println("Welcome to Real-Time Event Ticketing System");
 
         Configuration config=null;
+        int releaseTickets;
 
         while(true){
             try{
@@ -25,6 +26,9 @@ public class TicketingSystemCLI {
 
                 System.out.print("Enter Maximum Ticket Capacity: ");
                 int maxTicketCapacity = input.nextInt();
+
+                System.out.print("Enter number of tickets released by a vendor at a time: ");
+                releaseTickets = input.nextInt();
 
                 if (totalTickets > 0 && ticketReleaseRate > 0 && customerRetrievalRate > 0 && maxTicketCapacity >0) {
                     //initialize configuration object
@@ -63,12 +67,12 @@ public class TicketingSystemCLI {
         String option=input.next();
         if(option.equals("y")){
 
-            for (int i = 0; i < 5; i++) {
-                Thread vendorThread = new Thread(new Vendor(i,2,config.getTicketReleaseRate(),ticketPool));
+            for (int i = 1; i < 6; i++) {
+                Thread vendorThread = new Thread(new Vendor(i,releaseTickets,config.getTicketReleaseRate(),ticketPool));
                 vendorThread.start();
             }
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 1; i < 6; i++) {
                 Thread customerThread = new Thread(new Customer(i,config.getCustomerRetrievalRate(),ticketPool));
                 customerThread.start();
             }

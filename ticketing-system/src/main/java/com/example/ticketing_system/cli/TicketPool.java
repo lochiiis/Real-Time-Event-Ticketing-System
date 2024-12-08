@@ -64,7 +64,9 @@ public class TicketPool {
         synchronized (ticketList) {
             try{
                 while(ticketList.isEmpty()){
-                    System.out.println("No tickets available. Customer-" + customerId + " is waiting...");
+                    String outputMsg="No tickets available. Customer-" + customerId + " is waiting...";
+                    System.out.println(outputMsg);
+                    logs.add(outputMsg);
                     ticketList.wait();
                 }
                 int index = random.nextInt(ticketList.size());
