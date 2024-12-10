@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/simulation")
@@ -17,8 +18,13 @@ public class SimulationController {
 
     @PostMapping("/start")
     public String startSimulation(@RequestBody Configuration config) {
-        simulationService.startSimulation(config.getTotalTickets(), config.getTicketReleaseRate(),
-                config.getCustomerRetrievalRate(), config.getMaxTicketCapacity());
+        simulationService.startSimulation(
+                config.getTotalTickets(),
+                config.getTicketReleaseRate(),
+                config.getCustomerRetrievalRate(),
+                config.getMaxTicketCapacity()
+        );
+
         return "Simulation started!";
     }
 
@@ -32,4 +38,10 @@ public class SimulationController {
     public List<String> getLogs() {
         return simulationService.getSimulationLogs();
     }
+
+    @GetMapping("/analytics")
+    public Map<String,Integer> getAnalytics() {
+        return simulationService.getAnalytics();
+    }
+
 }

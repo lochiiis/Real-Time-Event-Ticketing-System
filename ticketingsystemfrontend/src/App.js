@@ -1,5 +1,6 @@
 import './App.css';
 import Configurations from './components/Configurations';
+import TicketSales from './components/TicketSales';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <h1>Ticket Management</h1>
       <Configurations />
+      <TicketSales/>
 
       
     </div>

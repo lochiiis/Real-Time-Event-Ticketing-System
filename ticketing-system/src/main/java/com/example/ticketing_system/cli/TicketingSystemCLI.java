@@ -1,5 +1,6 @@
 package com.example.ticketing_system.cli;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicketingSystemCLI {
@@ -18,13 +19,13 @@ public class TicketingSystemCLI {
                 System.out.print("Enter Total Number of Tickets: ");
                 int totalTickets = input.nextInt();
 
-                System.out.print("Enter Ticket Release Rate (tickets/sec): ");
+                System.out.print("Enter TicketSales Release Rate (tickets/sec): ");
                 int ticketReleaseRate = input.nextInt();
 
                 System.out.print("Enter Customer Retrieval Rate (tickets/sec): ");
                 int customerRetrievalRate = input.nextInt();
 
-                System.out.print("Enter Maximum Ticket Capacity: ");
+                System.out.print("Enter Maximum TicketSales Capacity: ");
                 int maxTicketCapacity = input.nextInt();
 
                 System.out.print("Enter number of tickets released by a vendor at a time: ");
@@ -40,9 +41,9 @@ public class TicketingSystemCLI {
 
                     config.writeLogs("\n----------------------------------------------------------------------\n");
                     config.writeLogs("Total Tickets: " + totalTickets);
-                    config.writeLogs("Ticket Release Rate: " + ticketReleaseRate);
+                    config.writeLogs("TicketSales Release Rate: " + ticketReleaseRate);
                     config.writeLogs("Customer Retrieval Rate: " + customerRetrievalRate);
-                    config.writeLogs("Maximum Ticket Capacity: " + maxTicketCapacity);
+                    config.writeLogs("Maximum TicketSales Capacity: " + maxTicketCapacity);
                     config.writeLogs("\n----------------------------------------------------------------------\n");
 
 
@@ -56,8 +57,9 @@ public class TicketingSystemCLI {
                     System.out.println("Invalid input. Ensure all values are positive and Max Capacity >= Total Tickets");
                 }
 
-            }catch(NumberFormatException e){
+            }catch(InputMismatchException e){
                 System.out.println("invalid input");
+                return;
             }
         }
 

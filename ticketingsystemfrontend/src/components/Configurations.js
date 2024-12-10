@@ -38,7 +38,7 @@ function Configurations() {
     }
   };
 
-  // //short polling-- poll logs only if simulation is running
+  // //poll logs only if simulation is running
   // useEffect(() => {
   //   if (!simulationRunning) return; // Only poll when simulation is running
   //   const interval = setInterval(() => {
@@ -82,7 +82,7 @@ function Configurations() {
         <h2>Configurations</h2>
         <form>
           <input
-            type="text" id="totalTickets" placeholder="Total Tickets"
+            type="number" id="totalTickets" placeholder="Total Tickets"
             value={config.totalTickets}
             onChange={handleChange}
           />

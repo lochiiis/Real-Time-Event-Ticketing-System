@@ -1,15 +1,31 @@
 package com.example.ticketing_system.service;
 
+import com.example.ticketing_system.cli.Configuration;
 import com.example.ticketing_system.cli.TicketPool;
 import com.example.ticketing_system.cli.Vendor;
 import com.example.ticketing_system.cli.Customer;
+import com.example.ticketing_system.repository.TicketSalesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SimulationService {
+    /**
+     * used to show the visual charts
+     */
+    private int totalTickets;
+    private int ticketReleased=0;
+    private int ticketsBought=0;
+    private int ticketsRemaining=0;
+
+
+    @Autowired
+    private TicketSalesRepository ticketSalesRepository;
 
     private TicketPool ticketPool;
     private List<Thread> vendorThreads = new ArrayList<>();
@@ -23,6 +39,8 @@ public class SimulationService {
         }
 
         ticketPool = new TicketPool(maxCapacity, totalTickets);
+        Configuration config=new Configuration(totalTickets,ticketReleaseRate,customerRetrievalRate,maxCapacity);
+        config.saveToFile("config.json");
 
         // Clear logs before starting a new simulation
         ticketPool.clearLogs();
@@ -32,7 +50,9 @@ public class SimulationService {
             Thread vendorThread = new Thread(new Vendor(i, 2, ticketReleaseRate, ticketPool));
             vendorThreads.add(vendorThread);
             vendorThread.start();
+
         }
+
 
         // Start customer threads
         for (int i = 1; i < 6; i++) {
@@ -68,4 +88,37 @@ public class SimulationService {
         }
         return ticketPool.getLogs();
     }
+
+
+
+
+
+    public Map<String,Integer>getAnalytics(){
+        if(ticketPool == null){
+            Map<String,Integer> defaultAnalytics=new HashMap<>();
+            defaultAnalytics.put("totalTickets",0);
+            defaultAnalytics.put("ticketsReleased",0);
+            defaultAnalytics.put("ticketsBought",0);
+            defaultAnalytics.put("ticketsRemaining",0);
+            return defaultAnalytics;
+        }
+
+        //fetch real-time data
+        totalTickets=ticketPool.getTotalTickets();
+        ticketReleased=ticketPool.getTotalTicketsAdded();
+        ticketsBought=ticketReleased-ticketPool.getRemainingTickets();
+        ticketsRemaining=ticketPool.getRemainingTickets();
+
+
+        //adding sales data to the chart
+        Map<String,Integer> analytics=new HashMap<>();
+
+        analytics.put("totalTickets",totalTickets);
+        analytics.put("ticketsReleased",ticketReleased);
+        analytics.put("ticketsBought",ticketsBought);
+        analytics.put("ticketsRemaining",ticketsRemaining);
+        return analytics;
+
+    }
+
 }

@@ -18,6 +18,8 @@ public class TicketPool {
 
     private final List<String> logs = Collections.synchronizedList(new ArrayList<>());
 
+//    @Autowired
+//    private TicketSalesRepository ticketSalesRepository;
 
     public TicketPool(int maxCapacity, int totalTickets) {
         this.maxCapacity = maxCapacity;
@@ -40,7 +42,7 @@ public class TicketPool {
 
                     System.out.println(ticketList);
 //                    count++;
-//                    System.out.println(count);
+//                    System.out.println(totalTicketsAdded);
                 }
                 totalTicketsAdded += ticketCount;
 
@@ -74,7 +76,12 @@ public class TicketPool {
 
                 ticketList.remove(index);
 
-               String outputMsg= "customer-"+customerId+" has removed ticketId:"+ removedTicketId +" from the pool.Current size is "+ticketList.size();
+
+//                //save the ticket sale in the database
+//                TicketSales transaction=new TicketSales(removedTicketId,"Spandana",1500.00,customerId);
+//                ticketSalesRepository.save(transaction);
+
+                String outputMsg= "customer-"+customerId+" has removed ticketId:"+ removedTicketId +" from the pool.Current size is "+ticketList.size();
                System.out.println(outputMsg);
                config.writeLogs(outputMsg);
                logs.add(outputMsg);
@@ -99,4 +106,19 @@ public class TicketPool {
     }
 
 
+    /**
+     *  to return data for the visual charts
+     */
+
+    public synchronized int getTotalTicketsAdded() {
+        return totalTicketsAdded;
+    }
+
+    public synchronized int getRemainingTickets() {
+        return ticketList.size();
+    }
+
+    public int getTotalTickets() {
+        return totalTickets;
+    }
 }
