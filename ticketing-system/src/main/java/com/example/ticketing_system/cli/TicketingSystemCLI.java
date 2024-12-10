@@ -16,17 +16,24 @@ public class TicketingSystemCLI {
         while(true){
             try{
                 // Taking configuration inputs
-                System.out.print("Enter Total Number of Tickets: ");
-                int totalTickets = input.nextInt();
+//                System.out.print("Enter Total Number of Tickets: ");
+//                int totalTickets = input.nextInt();
+//
+//                System.out.print("Enter TicketSales Release Rate (tickets/sec): ");
+//                int ticketReleaseRate = input.nextInt();
+//
+//                System.out.print("Enter Customer Retrieval Rate (tickets/sec): ");
+//                int customerRetrievalRate = input.nextInt();
+//
+//                System.out.print("Enter Maximum TicketSales Capacity: ");
+//                int maxTicketCapacity = input.nextInt();
 
-                System.out.print("Enter TicketSales Release Rate (tickets/sec): ");
-                int ticketReleaseRate = input.nextInt();
 
-                System.out.print("Enter Customer Retrieval Rate (tickets/sec): ");
-                int customerRetrievalRate = input.nextInt();
+                int totalTickets = getValidInput(input, "Enter Total Number of Tickets: ", 1, Integer.MAX_VALUE);
+                int ticketReleaseRate = getValidInput(input, "Enter Ticket Release Rate (tickets/sec): ", 1, Integer.MAX_VALUE);
+                int customerRetrievalRate = getValidInput(input, "Enter Customer Retrieval Rate (tickets/sec): ", 1, Integer.MAX_VALUE);
+                int maxTicketCapacity = getValidInput(input, "Enter Maximum Ticket Capacity: ", totalTickets, Integer.MAX_VALUE);
 
-                System.out.print("Enter Maximum TicketSales Capacity: ");
-                int maxTicketCapacity = input.nextInt();
 
                 System.out.print("Enter number of tickets released by a vendor at a time: ");
                 releaseTickets = input.nextInt();
@@ -89,4 +96,24 @@ public class TicketingSystemCLI {
         }
 
     }
+
+    private static int getValidInput(Scanner input, String prompt, int minValue, int maxValue) {
+        int value;
+        while (true) {
+            try {
+                System.out.print(prompt);
+                value = input.nextInt();
+                if (value >= minValue && value <= maxValue) {
+                    return value;
+                } else {
+                    System.out.println("Please enter a value between " + minValue + " and " + maxValue);
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                input.nextLine(); // Consume the invalid input
+            }
+        }
+    }
+
+
 }
