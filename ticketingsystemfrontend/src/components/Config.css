@@ -1,77 +1,94 @@
-/* Main container */
+
+
 .container {
   display: flex;
-  gap: 80px;
-  max-width: 1200px;
+  justify-content: space-between;
+  padding: 50px;
+  gap: 20px;
+  max-width: 1000px;
+  background-color :#f4f4f9;;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   margin: 50px auto;
-  font-family: Arial, sans-serif;
-  padding: 60px;
-  border-radius: 8px;
-  background-color:#cfcde3b0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
 }
 
-/* Card shared styles */
-.card1 {
-  background-color: #bcb8e3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-  width: 30%;
+.column1, .column2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.column1 {
+  max-width: 400px;
 }
 
-.card2 {
-  background-color:rgb(216, 237, 255);
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.card1, .card2, .card3, .card4 {
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 55%;
-  max-height: 400px;
-  overflow-y: auto;
 }
-.card2::-webkit-scrollbar {
+
+.logs::-webkit-scrollbar {
   display: none; /* Hide scrollbar in Chrome, Edge, and Safari */
 }
 
 
+.card1,.card3 {
+  background-color: #dbdbff;
+}
+.card3{
+  height:200px;
+}
 
+.card4{
+  height: 600px;
+}
 
-/* Form heading */
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #292828;
+  margin: 0 0 20px;
+  font-size: 1.5em;
+  color: #444;
 }
 
-/* Form inputs */
-form input {
-  width: 70%;
-  padding: 12px;
-  margin: 10px 20px;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 0.8em;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: 5px;
+}
+label {
+  text-align: left;
+  color: #444;
+  padding-left: 10px;
 }
 
-/* Button styling */
-button {
-  padding: 10px 20px;
-  margin: 10px 10px 0 0;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}  
+input:focus {
+  outline: none;
+  border-color: #21caf2;
+}
 
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
 form button:first-of-type {
-  background-color: #2e9c47; /* Green for Start */
+  margin-top:15px ;
+  background-color: #1a8332e1; /* Green for Start */
   color: white;
 }
 form button:last-of-type {
-  background-color: #c23851; /* Red for Stop */
+  background-color: #c82b48e4; /* Red for Stop */
   color: white;
 }
 
@@ -80,25 +97,83 @@ button[type="button"]:hover {
   color: white;
 }
 
-/* Logs section */
-.logs{
-  padding: 20px;
+.chart-container {
+  position: relative;
+  height: 300px;
+  max-height: auto;
+  width: 100%;
 }
 
-ul {
+.ticket-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  background-color: #f9f9fb;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 5px 0px 5px;
+}
+
+.stat-number {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #444;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.logs {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9fb;
+}
+
+.logs ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
+.logs li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+
+  font-size: 0.9em;
+  color: #555;
+}
 li {
   padding: 8px;
   margin: 5px 0;
   border-radius: 4px;
-  background-color: #bcb8e3;
+  background-color: #d2c0e6;
   font-size: 14px;
 }
 
 li:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f1eaf4;
 }
 
+
+.logs li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .column1, .column2 {
+    flex: none;
+  }
+}

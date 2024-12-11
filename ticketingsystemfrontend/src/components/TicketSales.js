@@ -29,8 +29,8 @@ function TicketSales() {
       {
         label: "Ticket Sales Data",
         data: [0, 0, 0, 0], // Initial data
-        backgroundColor: ["#21caf2", "#4caf50", "#f44336", "#2196f3"],
-        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: ["#A2D2FF","#57cc99", "#CDB4DB", "#FFAFCC"],
+        borderColor: "rgba(219, 219, 255, 1)",
         borderWidth: 1,
         hoverOffset: 30,
       },
@@ -42,6 +42,20 @@ function TicketSales() {
   };
 
   const startSimulation = async () => {
+    //Validate input
+    if(
+      config.totalTickets <=0 ||
+      config.ticketReleaseRate <=0 ||
+      config.customerRetrievalRate <=0 ||
+      config.maxTicketCapacity <=0
+    )
+    {
+      alert("Please check the input values. They should be greater than 0");
+      return;
+    }
+    
+    
+
     try {
       setLogs([]); // Clear logs on the frontend
       setTicketStats({
@@ -92,7 +106,7 @@ function TicketSales() {
           {
             label: "Ticket Sales Data",
             data: [totalTickets, ticketsReleased, ticketsBought, ticketsRemaining],
-            backgroundColor: ["#21caf2", "#4caf50", "#f44336", "#2196f3"],
+            backgroundColor: ["#A2D2FF","#57cc99", "#CDB4DB", "#FFAFCC"],
             borderColor: "rgba(75, 192, 192, 1)",
             borderWidth: 1,
             hoverOffset: 30,
@@ -120,36 +134,40 @@ function TicketSales() {
 
   return (
     <div className="container">
-        
+      <div className="column1">
         <div className="card1">
           <h2>Configurations</h2>
           <form>
+            <label htmlFor="totalTickets">Total Tickets</label>
             <input
-              type="text"
+              type="number"
               id="totalTickets"
               placeholder="Total Tickets"
               value={config.totalTickets}
               onChange={handleChange}
             />
 
+            <label htmlFor="ticketReleaseRate">Ticket Release Rate</label>
             <input
-              type="text"
+              type="number"
               id="ticketReleaseRate"
-              placeholder="Release Rate"
+              placeholder="Release Rate (Seconds)"
               value={config.ticketReleaseRate}
               onChange={handleChange}
             />
 
+            <label htmlFor="customerRetrievalRate">Customer Retrieval Rate</label>
             <input
-              type="text"
+              type="number"
               id="customerRetrievalRate"
-              placeholder="Retrieval Rate"
+              placeholder="Retrieval Rate (Seconds)"
               value={config.customerRetrievalRate}
               onChange={handleChange}
             />
 
+            <label htmlFor="maxTicketCapacity">Max Ticket Capacity</label>
             <input
-              type="text"
+              type="number"
               id="maxTicketCapacity"
               placeholder="Max Capacity"
               value={config.maxTicketCapacity}
@@ -164,50 +182,60 @@ function TicketSales() {
               Stop Simulation
             </button>
           </form>
-        
-          
+        </div> 
 
-          <div className="ticket-stats">
-            <h2>Ticket Status</h2>
-            <div className="stat-item">
-              <p className="stat-number">{ticketStats.totalTickets}</p>
-              <p className="stat-label">Total</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-number">{ticketStats.ticketsReleased}</p>
-              <p className="stat-label">Released</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-number">{ticketStats.ticketsBought}</p>
-              <p className="stat-label">Bought</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-number">{ticketStats.ticketsRemaining}</p>
-              <p className="stat-label">Remaining</p>
-            </div>
+        <div className="card2">
+          <h2>Ticket Sales Analytics</h2>
+          <div className="chart-container">
+            <Pie data={chartData} />
           </div>
-      </div>
+        </div>  
 
-      <div className="card2">
-        <h2>Simulation Logs</h2>
-        <div className="logs">
-          <ul>
-            {logs.length > 0 ? (
-              logs.map((log, index) => <li key={index}>{log}</li>)
-            ) : (
-              <li>No logs available. Start the simulation to view logs.</li>
-            )}
-          </ul>
+      </div>   
+
+      <div className="column2">
+        <div className="card3">
+          <h2>Ticket Status</h2>
+            <div className="ticket-stats">
+              <div className="stat-item">
+              <p className="stat-label">Total Tickets with the vendors</p>
+                <p className="stat-number">{ticketStats.totalTickets}</p>
+              </div>
+              <div className="stat-item">
+              <p className="stat-label">Tickets released by vendors</p>
+              <p className="stat-number">{ticketStats.ticketsReleased}</p>
+              </div>
+              <div className="stat-item">
+              <p className="stat-label">Tickets bought by customers</p>
+              <p className="stat-number">{ticketStats.ticketsBought}</p>
+              </div>
+              <div className="stat-item">
+              <p className="stat-label">Tickets remaining in the pool</p>
+              <p className="stat-number">{ticketStats.ticketsRemaining}</p>
+              </div>
+            </div>
+        </div>  
+
+
+      
+
+        <div className="card4">
+          <h2>Simulation Logs</h2>
+          <div className="logs">
+            <ul>
+              {logs.length > 0 ? (
+                logs.map((log, index) => <li key={index}>{log}</li>)
+              ) : (
+                <li>No logs available. Start the simulation to view logs.</li>
+              )}
+            </ul>
+          </div>
         </div>
-      </div>
+      </div>          
+  </div>    
 
-      <div className="card3">
-      <div className="chart-container">
-        <h2>Ticket Sales Analytics</h2>
-        <Pie data={chartData} />
-      </div>
-      </div>
-    </div>
+
+
   );
 }
 

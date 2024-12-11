@@ -11,27 +11,25 @@ import java.io.IOException;
 import java.io.Writer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 
 public class Configuration {
 
+    private int totalTickets; // Total number of tickets in the system
 
+    private int ticketReleaseRate; // Rate at which tickets are released by vendors (second)
 
-    private int totalTickets;
+    private int customerRetrievalRate; // Rate at which customers attempt to retrieve tickets (second)
 
+    private int maxTicketCapacity; // Maximum capacity of the ticket pool
 
-    private int ticketReleaseRate;
-
-
-    private int customerRetrievalRate;
-
-
-    private int maxTicketCapacity;
-
-
+    //default constructor
     public Configuration() {
     }
 
+    // Parameterized constructor to initialize configuration with given values
     public Configuration(int totalTickets, int ticketReleaseRate, int customerRetrievalRate, int maxTicketCapacity) {
         this.totalTickets = totalTickets;
         this.ticketReleaseRate = ticketReleaseRate;
@@ -56,6 +54,7 @@ public class Configuration {
         return maxTicketCapacity;
     }
 
+
     public void setTotalTickets(int totalTickets) {
         this.totalTickets = totalTickets;
     }
@@ -72,8 +71,43 @@ public class Configuration {
         this.maxTicketCapacity = maxTicketCapacity;
     }
 
+
+    /**
+     * Ensures that the value entered is within the specified range.
+     *
+     * @param input     Scanner object for taking user input
+     * @param prompt    message displayed to the user
+     * @param minValue  minimum acceptable value
+     * @param maxValue  maximum acceptable value
+     * @return          valid input
+     */
+    public static int getValidInput(Scanner input, String prompt, int minValue, int maxValue) {
+        int value;
+        while (true) {
+            try {
+                System.out.print(prompt);
+                value = input.nextInt();
+                if (value >= minValue && value <= maxValue) {
+                    return value;
+                } else {
+                    System.out.println("Please enter a value grater than zero");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                input.nextLine();
+            }
+        }
+    }
+
+
+    /**
+     * Saves the current configuration to a JSON file
+     *
+     * @param filename the name of the file where configuration will bee saved
+     */
+
     public void saveToFile(String filename) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();// Create Gson object for serialization
         try(Writer writer = new FileWriter(filename)) {
             gson.toJson(this, writer);
         } catch (IOException e) {
@@ -81,13 +115,11 @@ public class Configuration {
         }
     }
 
-
-
-
-
-
-
-
+    /**
+     * Writes log messages with timestamps to a log file
+     *
+     * @param msg the log message be written
+     */
     public void writeLogs(String msg) {
         String timeStamp= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
@@ -98,11 +130,6 @@ public class Configuration {
             System.out.println("Error in writing to file");
         }
     }
-
-
-
-
-
 
 }
 

@@ -1,106 +1,122 @@
 package com.example.ticketing_system.cli;
 
-
-
 import java.util.*;
 
-
+/**
+ * ensures thread-safe operations for adding and removing tickets by vendors and customers
+ */
 public class TicketPool {
-    private final List<Integer> ticketList = Collections.synchronizedList(new LinkedList<>());
-    private int maxCapacity;
-    private final Random random = new Random();
-    private final int totalTickets;
-    private int totalTicketsAdded = 0;
+    private final List<Integer> ticketList = Collections.synchronizedList(new LinkedList<>()); // thread-safe list to store tickets
+    private int maxCapacity; // maximum capacity of the ticket pool
+    private final Random random = new Random(); // random generator for ticket removal
+    private final int totalTickets; //total number of tickets allowed in the system
+    private int totalTicketsAdded = 0; //tracks the total number of tickets added to the pool
 
-    private int ticketId=1;
+    private int ticketId=1; // unique identifier for each ticket
 
     Configuration config = new Configuration();
 
+    // Thread-safe list to store logs
     private final List<String> logs = Collections.synchronizedList(new ArrayList<>());
 
-//    @Autowired
-//    private TicketSalesRepository ticketSalesRepository;
+
 
     public TicketPool(int maxCapacity, int totalTickets) {
         this.maxCapacity = maxCapacity;
         this.totalTickets = totalTickets;
     }
 
-//    int count=0;
+
+    /**
+     * Adds tickets to the pool in a thread-safe manner
+     *
+     * @param ticketCount number of tickets to add
+     * @param vendorId ID of the vendor adding tickets
+     */
     public void addTicket(int ticketCount, int vendorId){
         synchronized (ticketList) {
             try{
+                //wait if adding tickets exceeds max capacity or total tickets
                 while(ticketList.size()+ticketCount > maxCapacity || totalTicketsAdded + ticketCount > totalTickets){ //if the vendor wants to add tickets and the list exceeds
                     if (totalTicketsAdded > totalTickets) {
                         return; // Exit without waiting, as no more tickets can be added.
                     }
-//                    System.out.println("TicketPool capacity reached.Can't add more tickets");
                     ticketList.wait();
                 }
-                for(int i=0; i<ticketCount;i++){
-                    ticketList.add(ticketId++);
 
-                    System.out.println(ticketList);
-//                    count++;
-//                    System.out.println(totalTicketsAdded);
+                // add tickets to the pool
+                for(int i=0; i<ticketCount;i++){
+                    ticketList.add(ticketId++); //assign unique ticket ID
                 }
                 totalTicketsAdded += ticketCount;
 
-                String outputMsg = "Vendor" + vendorId + " has added " + ticketCount + " tickets. Current size: " + ticketList.size();
-                System.out.println(outputMsg);
-                config.writeLogs(outputMsg);
-                logs.add(outputMsg);
 
+                String outputMsg = "Vendor" + vendorId + " has released " + ticketCount + " tickets. Currently released tickets: " + ticketList.size();
+
+
+                System.out.println(outputMsg);
+                config.writeLogs(outputMsg); //write the log details in text file
+                logs.add(outputMsg); //add to list of log entries
 
                 ticketList.notifyAll();
+
             }catch(InterruptedException e){
                 Thread.currentThread().interrupt();
-//                System.out.println("Vendor"+ vendorId +" interrupted while adding tickets");
             }
         }
-
-
     }
 
+
+    /**
+     * Removes a ticket from the pool in a thread-safe manner
+     *
+     * @param customerId   ID of the customer attempting to remove a ticket
+     */
     public void removeTicket(int customerId){
         synchronized (ticketList) {
             try{
+                // wait if no tickets are available
                 while(ticketList.isEmpty()){
                     String outputMsg="No tickets available. Customer-" + customerId + " is waiting...";
                     System.out.println(outputMsg);
-                    logs.add(outputMsg);
+                    config.writeLogs(outputMsg);//write the log details in text file
+                    logs.add(outputMsg);//add to list of log entries
                     ticketList.wait();
                 }
-                int index = random.nextInt(ticketList.size());
-                int removedTicketId = ticketList.get(index); // if remove this gives index out of bound
 
+                //remove a tickets from a random index
+                int index = random.nextInt(ticketList.size());
+                int removedTicketId = ticketList.get(index);
                 ticketList.remove(index);
 
 
-//                //save the ticket sale in the database
-//                TicketSales transaction=new TicketSales(removedTicketId,"Spandana",1500.00,customerId);
-//                ticketSalesRepository.save(transaction);
-
-                String outputMsg= "customer-"+customerId+" has removed ticketId:"+ removedTicketId +" from the pool.Current size is "+ticketList.size();
-               System.out.println(outputMsg);
-               config.writeLogs(outputMsg);
-               logs.add(outputMsg);
+                String outputMsg= "customer"+customerId+" has bought ticket of ticketId:"+ removedTicketId +".Currently available tickets: "+ticketList.size();
+                System.out.println(outputMsg);
+                config.writeLogs(outputMsg);//write the log details in text file
+                logs.add(outputMsg);//add to list of log entries
 
                 ticketList.notifyAll();
 
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-//                System.out.println("Customer" + customerId + "interrupted while removing tickets");
             }
         }
 
     }
 
+
+    /**
+     * returns logs from the ticket pool
+     *
+     * @return copy of logs as a list of strings
+     */
     public List<String> getLogs() {
         return new ArrayList<>(logs);
     }
 
-    // Clear logs
+    /**
+     * clears all logs in ticket pool
+     */
     public void clearLogs() {
         logs.clear();
     }
@@ -121,4 +137,5 @@ public class TicketPool {
     public int getTotalTickets() {
         return totalTickets;
     }
+
 }

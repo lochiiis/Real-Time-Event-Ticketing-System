@@ -6,6 +6,14 @@ public class Vendor implements Runnable {
     private final int releaseInterval; //interval in ms
     private final TicketPool ticketPool;
 
+
+    /**
+     *
+     * @param vendorId  unique ID for the vendor.
+     * @param ticketsPerRelease  number of tickets the vendor releases per interval
+     * @param releaseInterval interval (seconds) between each ticket release
+     * @param ticketPool shared ticket pool where tickets are added
+     */
     public Vendor(int vendorId, int ticketsPerRelease, int releaseInterval, TicketPool ticketPool) {
         this.vendorId = vendorId;
         this.ticketsPerRelease = ticketsPerRelease;
@@ -13,6 +21,10 @@ public class Vendor implements Runnable {
         this.ticketPool = ticketPool;
     }
 
+
+    /**
+     *  continuously releases tickets into the ticket pool at the specified release interval
+     */
     @Override
     public void run() {
         try{

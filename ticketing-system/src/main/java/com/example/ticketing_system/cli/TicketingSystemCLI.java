@@ -3,6 +3,12 @@ package com.example.ticketing_system.cli;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static com.example.ticketing_system.cli.Configuration.getValidInput;
+
+/**
+ * command-line interface for the real-time ticketing system
+ * allows users to configure the system, start the simulation, or exit
+ */
 public class TicketingSystemCLI {
     public static void main(String[] args) {
 
@@ -10,39 +16,23 @@ public class TicketingSystemCLI {
 
         System.out.println("Welcome to Real-Time Event Ticketing System");
 
-        Configuration config=null;
-        int releaseTickets;
+        Configuration config; // Configuration object to store system settings
+
 
         while(true){
             try{
                 // Taking configuration inputs
-//                System.out.print("Enter Total Number of Tickets: ");
-//                int totalTickets = input.nextInt();
-//
-//                System.out.print("Enter TicketSales Release Rate (tickets/sec): ");
-//                int ticketReleaseRate = input.nextInt();
-//
-//                System.out.print("Enter Customer Retrieval Rate (tickets/sec): ");
-//                int customerRetrievalRate = input.nextInt();
-//
-//                System.out.print("Enter Maximum TicketSales Capacity: ");
-//                int maxTicketCapacity = input.nextInt();
-
-
                 int totalTickets = getValidInput(input, "Enter Total Number of Tickets: ", 1, Integer.MAX_VALUE);
                 int ticketReleaseRate = getValidInput(input, "Enter Ticket Release Rate (tickets/sec): ", 1, Integer.MAX_VALUE);
                 int customerRetrievalRate = getValidInput(input, "Enter Customer Retrieval Rate (tickets/sec): ", 1, Integer.MAX_VALUE);
-                int maxTicketCapacity = getValidInput(input, "Enter Maximum Ticket Capacity: ", totalTickets, Integer.MAX_VALUE);
+                int maxTicketCapacity = getValidInput(input, "Enter Maximum Ticket Capacity: ", 1, Integer.MAX_VALUE);
 
 
-                System.out.print("Enter number of tickets released by a vendor at a time: ");
-                releaseTickets = input.nextInt();
-
+                // Validate input values to ensure they are positive
                 if (totalTickets > 0 && ticketReleaseRate > 0 && customerRetrievalRate > 0 && maxTicketCapacity >0) {
+
                     //initialize configuration object
                     config =new Configuration(totalTickets, ticketReleaseRate, customerRetrievalRate, maxTicketCapacity);
-
-
 
                     config.saveToFile("config.json");
 
@@ -56,7 +46,7 @@ public class TicketingSystemCLI {
 
                     try {
                         System.out.println("Successfully saved configurations to file");
-                        break;
+                        break; // exit loop after saving the configurations
                     } catch (Exception e) {
                         System.out.print("Error while saving configurations to file");
                     }
@@ -65,55 +55,43 @@ public class TicketingSystemCLI {
                 }
 
             }catch(InputMismatchException e){
-                System.out.println("invalid input");
-                return;
+                System.out.println("Invalid input");
             }
         }
 
+        // Initialize the TicketPool with the user-defined configuration
         TicketPool ticketPool=new TicketPool(config.getMaxTicketCapacity(), config.getTotalTickets());
 
-        System.out.print("enter y to start the system :");
-        String option=input.next();
-        if(option.equals("y")){
+        //Start or exit system
+        while(true) {
+            System.out.print("""
+                    1.start the system (y)
+                    2.exit the system (n)
+                    Select option: """);
+            String option = input.next().toLowerCase();
 
-            for (int i = 1; i < 6; i++) {
-                Thread vendorThread = new Thread(new Vendor(i,releaseTickets,config.getTicketReleaseRate(),ticketPool));
-                vendorThread.start();
-            }
+            if (option.equals("y")) {
 
-            for (int i = 1; i < 6; i++) {
-                Thread customerThread = new Thread(new Customer(i,config.getCustomerRetrievalRate(),ticketPool));
-                customerThread.start();
-            }
-
-
-        }else if (option.equals("n")) {
-            System.out.println("System exiting...");
-            System.exit(0);
-
-        }else {
-            System.out.println("Invalid input exiting system");
-        }
-
-    }
-
-    private static int getValidInput(Scanner input, String prompt, int minValue, int maxValue) {
-        int value;
-        while (true) {
-            try {
-                System.out.print(prompt);
-                value = input.nextInt();
-                if (value >= minValue && value <= maxValue) {
-                    return value;
-                } else {
-                    System.out.println("Please enter a value between " + minValue + " and " + maxValue);
+                //start vendor threads
+                for (int i = 1; i < 6; i++) {
+                    Thread vendorThread = new Thread(new Vendor(i, 2, config.getTicketReleaseRate(), ticketPool));
+                    vendorThread.start();
                 }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                input.nextLine(); // Consume the invalid input
+
+                //start consumer threads
+                for (int i = 1; i < 6; i++) {
+                    Thread customerThread = new Thread(new Customer(i, config.getCustomerRetrievalRate(), ticketPool));
+                    customerThread.start();
+                }
+                break; //exit loop after starting the system
+
+            } else if (option.equals("n")) {
+                System.out.println("System exiting...");
+                System.exit(0);
+
+            } else {
+                System.out.println("Invalid input.Please enter 'y' to start or 'n' to exit");
             }
         }
     }
-
-
 }
