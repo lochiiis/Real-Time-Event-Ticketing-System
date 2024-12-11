@@ -67,7 +67,11 @@ project-root/
 
 ### Frontend Setup
 1. Navigate to the `frontend/` directory.
-2. Start the React development server:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the React development server:
    ```bash
    npm start
    ```

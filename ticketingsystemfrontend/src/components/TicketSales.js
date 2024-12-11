@@ -4,7 +4,10 @@ import "./Config.css";
 import { Pie } from "react-chartjs-2";
 import "chart.js/auto";
 
+
 function TicketSales() {
+    
+  // State for storing ticketing configurations
   const [config, setConfig] = useState({
     totalTickets: "",
     ticketReleaseRate: "",
@@ -12,6 +15,7 @@ function TicketSales() {
     maxTicketCapacity: "",
   });
 
+  // State for storing logs from the simulation
   const [logs, setLogs] = useState([]);
   const [simulationRunning, setSimulationRunning] = useState(false); // Track simulation status
 
@@ -114,12 +118,13 @@ function TicketSales() {
         ],
       });
 
-      // Recursively call fetchLogsAndUpdateStats for long polling
-      fetchLogsAndUpdateStats();
+    // Recursively call fetchLogsAndUpdateStats for long polling
+    fetchLogsAndUpdateStats();
     } catch (error) {
       console.error("Error fetching logs or analytics:", error);
       setTimeout(fetchLogsAndUpdateStats, 2000); // Retry after 2 seconds in case of an error
     }
+
   };
 
   // Long polling - Initiates fetchLogsAndUpdateStats when simulation starts
@@ -217,8 +222,6 @@ function TicketSales() {
         </div>  
 
 
-      
-
         <div className="card4">
           <h2>Simulation Logs</h2>
           <div className="logs">
@@ -233,7 +236,6 @@ function TicketSales() {
         </div>
       </div>          
   </div>    
-
 
 
   );
