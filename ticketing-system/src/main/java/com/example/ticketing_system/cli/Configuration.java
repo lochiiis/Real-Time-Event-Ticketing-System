@@ -2,7 +2,7 @@ package com.example.ticketing_system.cli;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import lombok.Setter;
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -54,22 +54,6 @@ public class Configuration {
         return maxTicketCapacity;
     }
 
-
-    public void setTotalTickets(int totalTickets) {
-        this.totalTickets = totalTickets;
-    }
-
-    public void setTicketReleaseRate(int ticketReleaseRate) {
-        this.ticketReleaseRate = ticketReleaseRate;
-    }
-
-    public void setCustomerRetrievalRate(int customerRetrievalRate) {
-        this.customerRetrievalRate = customerRetrievalRate;
-    }
-
-    public void setMaxTicketCapacity(int maxTicketCapacity) {
-        this.maxTicketCapacity = maxTicketCapacity;
-    }
 
 
     /**

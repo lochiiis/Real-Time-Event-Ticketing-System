@@ -67,7 +67,7 @@ public class TicketingSystemCLI {
             System.out.print("""
                     1.start the system (y)
                     2.exit the system (n)
-                    Select option: """);
+                    Select option:""");
             String option = input.next().toLowerCase();
 
             if (option.equals("y")) {
