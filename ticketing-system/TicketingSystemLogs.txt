@@ -386,3 +386,212 @@
 2024-12-12 04:21:20 - No tickets available. Customer-2 is waiting...
 2024-12-12 04:21:20 - No tickets available. Customer-5 is waiting...
 2024-12-12 04:21:20 - No tickets available. Customer-1 is waiting...
+2024-12-12 05:10:56 - Vendor1 has released 2 tickets. Currently released tickets: 2
+2024-12-12 05:10:56 - customer5 has bought ticket of ticketId:2.Currently available tickets: 1
+2024-12-12 05:10:56 - customer4 has bought ticket of ticketId:1.Currently available tickets: 0
+2024-12-12 05:10:56 - No tickets available. Customer-3 is waiting...
+2024-12-12 05:10:56 - No tickets available. Customer-2 is waiting...
+2024-12-12 05:10:56 - No tickets available. Customer-1 is waiting...
+2024-12-12 05:10:56 - Vendor4 has released 2 tickets. Currently released tickets: 2
+2024-12-12 05:10:56 - Vendor5 has released 2 tickets. Currently released tickets: 4
+2024-12-12 05:10:56 - Vendor3 has released 2 tickets. Currently released tickets: 6
+2024-12-12 05:10:56 - Vendor2 has released 2 tickets. Currently released tickets: 8
+2024-12-12 05:10:56 - customer1 has bought ticket of ticketId:3.Currently available tickets: 7
+2024-12-12 05:10:56 - customer2 has bought ticket of ticketId:10.Currently available tickets: 6
+2024-12-12 05:10:56 - customer3 has bought ticket of ticketId:6.Currently available tickets: 5
+2024-12-12 05:10:58 - customer2 has bought ticket of ticketId:9.Currently available tickets: 4
+2024-12-12 05:10:58 - Vendor1 has released 2 tickets. Currently released tickets: 6
+2024-12-12 05:10:58 - Vendor4 has released 2 tickets. Currently released tickets: 8
+2024-12-12 05:10:58 - Vendor5 has released 2 tickets. Currently released tickets: 10
+2024-12-12 05:10:58 - Vendor2 has released 2 tickets. Currently released tickets: 12
+2024-12-12 05:10:58 - customer5 has bought ticket of ticketId:17.Currently available tickets: 11
+2024-12-12 05:10:58 - Vendor3 has released 2 tickets. Currently released tickets: 13
+2024-12-12 05:10:58 - customer4 has bought ticket of ticketId:13.Currently available tickets: 12
+2024-12-12 05:10:58 - customer3 has bought ticket of ticketId:4.Currently available tickets: 11
+2024-12-12 05:10:58 - customer1 has bought ticket of ticketId:7.Currently available tickets: 10
+2024-12-12 05:35:46 - 
+----------------------------------------------------------------------
+
+2024-12-12 05:35:46 - Total Tickets: 100
+2024-12-12 05:35:46 - TicketSales Release Rate: 2
+2024-12-12 05:35:46 - Customer Retrieval Rate: 2
+2024-12-12 05:35:46 - Maximum TicketSales Capacity: 50
+2024-12-12 05:35:46 - 
+----------------------------------------------------------------------
+
+2024-12-12 05:35:52 - Vendor1 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:35:53 - customer5 has bought ticket of ticketId:2. Current available tickets: 1
+2024-12-12 05:35:53 - customer4 has bought ticket of ticketId:1. Current available tickets: 0
+2024-12-12 05:35:53 - No tickets available. Customer-3 is waiting...
+2024-12-12 05:35:53 - No tickets available. Customer-2 is waiting...
+2024-12-12 05:35:53 - No tickets available. Customer-1 is waiting...
+2024-12-12 05:35:53 - Vendor5 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:35:53 - Vendor3 has released 2 tickets. Current released tickets: 4
+2024-12-12 05:35:53 - Vendor4 has released 2 tickets. Current released tickets: 6
+2024-12-12 05:35:53 - Vendor2 has released 2 tickets. Current released tickets: 8
+2024-12-12 05:35:53 - customer1 has bought ticket of ticketId:7. Current available tickets: 7
+2024-12-12 05:35:53 - customer2 has bought ticket of ticketId:10. Current available tickets: 6
+2024-12-12 05:35:53 - customer3 has bought ticket of ticketId:9. Current available tickets: 5
+2024-12-12 05:35:54 - Vendor1 has released 2 tickets. Current released tickets: 7
+2024-12-12 05:35:55 - Vendor2 has released 2 tickets. Current released tickets: 9
+2024-12-12 05:35:55 - customer1 has bought ticket of ticketId:3. Current available tickets: 8
+2024-12-12 05:35:55 - customer2 has bought ticket of ticketId:13. Current available tickets: 7
+2024-12-12 05:35:55 - customer5 has bought ticket of ticketId:4. Current available tickets: 6
+2024-12-12 05:35:55 - customer4 has bought ticket of ticketId:6. Current available tickets: 5
+2024-12-12 05:35:55 - Vendor5 has released 2 tickets. Current released tickets: 7
+2024-12-12 05:35:55 - Vendor4 has released 2 tickets. Current released tickets: 9
+2024-12-12 05:35:55 - Vendor3 has released 2 tickets. Current released tickets: 11
+2024-12-12 05:35:55 - customer3 has bought ticket of ticketId:14. Current available tickets: 10
+2024-12-12 05:35:57 - Vendor1 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:35:57 - Vendor2 has released 2 tickets. Current released tickets: 14
+2024-12-12 05:35:57 - customer1 has bought ticket of ticketId:5. Current available tickets: 13
+2024-12-12 05:35:57 - customer2 has bought ticket of ticketId:12. Current available tickets: 12
+2024-12-12 05:35:57 - customer4 has bought ticket of ticketId:23. Current available tickets: 11
+2024-12-12 05:35:57 - Vendor4 has released 2 tickets. Current released tickets: 13
+2024-12-12 05:35:57 - Vendor5 has released 2 tickets. Current released tickets: 15
+2024-12-12 05:35:57 - customer5 has bought ticket of ticketId:22. Current available tickets: 14
+2024-12-12 05:35:57 - customer3 has bought ticket of ticketId:27. Current available tickets: 13
+2024-12-12 05:35:57 - Vendor3 has released 2 tickets. Current released tickets: 15
+2024-12-12 05:35:59 - Vendor1 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:35:59 - Vendor2 has released 2 tickets. Current released tickets: 19
+2024-12-12 05:35:59 - customer1 has bought ticket of ticketId:18. Current available tickets: 18
+2024-12-12 05:35:59 - customer2 has bought ticket of ticketId:30. Current available tickets: 17
+2024-12-12 05:35:59 - customer4 has bought ticket of ticketId:15. Current available tickets: 16
+2024-12-12 05:35:59 - Vendor4 has released 2 tickets. Current released tickets: 18
+2024-12-12 05:35:59 - Vendor5 has released 2 tickets. Current released tickets: 20
+2024-12-12 05:35:59 - customer5 has bought ticket of ticketId:31. Current available tickets: 19
+2024-12-12 05:35:59 - customer3 has bought ticket of ticketId:28. Current available tickets: 18
+2024-12-12 05:35:59 - Vendor3 has released 2 tickets. Current released tickets: 20
+2024-12-12 05:50:28 - 
+----------------------------------------------------------------------
+
+2024-12-12 05:50:28 - Total Tickets: 100
+2024-12-12 05:50:28 - TicketSales Release Rate: 2
+2024-12-12 05:50:28 - Customer Retrieval Rate: 2
+2024-12-12 05:50:28 - Maximum TicketSales Capacity: 20
+2024-12-12 05:50:28 - 
+----------------------------------------------------------------------
+
+2024-12-12 05:50:34 - Vendor1 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:50:34 - customer5 has bought ticket of ticketId:2. Current available tickets: 1
+2024-12-12 05:50:34 - customer2 has bought ticket of ticketId:1. Current available tickets: 0
+2024-12-12 05:50:34 - No tickets available. Customer-3 is waiting...
+2024-12-12 05:50:34 - No tickets available. Customer-4 is waiting...
+2024-12-12 05:50:34 - No tickets available. Customer-1 is waiting...
+2024-12-12 05:50:34 - Vendor5 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:50:34 - Vendor4 has released 2 tickets. Current released tickets: 4
+2024-12-12 05:50:34 - Vendor3 has released 2 tickets. Current released tickets: 6
+2024-12-12 05:50:34 - Vendor2 has released 2 tickets. Current released tickets: 8
+2024-12-12 05:50:34 - customer1 has bought ticket of ticketId:4. Current available tickets: 7
+2024-12-12 05:50:34 - customer4 has bought ticket of ticketId:9. Current available tickets: 6
+2024-12-12 05:50:34 - customer3 has bought ticket of ticketId:10. Current available tickets: 5
+2024-12-12 05:50:36 - Vendor1 has released 2 tickets. Current released tickets: 7
+2024-12-12 05:50:36 - customer3 has bought ticket of ticketId:5. Current available tickets: 6
+2024-12-12 05:50:36 - customer5 has bought ticket of ticketId:8. Current available tickets: 5
+2024-12-12 05:50:36 - customer2 has bought ticket of ticketId:11. Current available tickets: 4
+2024-12-12 05:50:36 - Vendor4 has released 2 tickets. Current released tickets: 6
+2024-12-12 05:50:36 - Vendor3 has released 2 tickets. Current released tickets: 8
+2024-12-12 05:50:36 - customer1 has bought ticket of ticketId:15. Current available tickets: 7
+2024-12-12 05:50:36 - Vendor5 has released 2 tickets. Current released tickets: 9
+2024-12-12 05:50:36 - Vendor2 has released 2 tickets. Current released tickets: 11
+2024-12-12 05:50:36 - customer4 has bought ticket of ticketId:17. Current available tickets: 10
+2024-12-12 05:50:38 - Vendor1 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:50:38 - customer3 has bought ticket of ticketId:12. Current available tickets: 11
+2024-12-12 05:50:38 - customer5 has bought ticket of ticketId:6. Current available tickets: 10
+2024-12-12 05:50:38 - Vendor3 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:50:38 - customer2 has bought ticket of ticketId:20. Current available tickets: 11
+2024-12-12 05:50:38 - Vendor4 has released 2 tickets. Current released tickets: 13
+2024-12-12 05:50:38 - customer1 has bought ticket of ticketId:7. Current available tickets: 12
+2024-12-12 05:50:38 - Vendor5 has released 2 tickets. Current released tickets: 14
+2024-12-12 05:50:38 - customer4 has bought ticket of ticketId:3. Current available tickets: 13
+2024-12-12 05:50:38 - Vendor2 has released 2 tickets. Current released tickets: 15
+2024-12-12 05:50:40 - Vendor1 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:50:40 - customer3 has bought ticket of ticketId:32. Current available tickets: 16
+2024-12-12 05:50:40 - customer5 has bought ticket of ticketId:31. Current available tickets: 15
+2024-12-12 05:50:40 - Vendor3 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:50:40 - customer2 has bought ticket of ticketId:28. Current available tickets: 16
+2024-12-12 05:50:40 - customer1 has bought ticket of ticketId:33. Current available tickets: 15
+2024-12-12 05:50:40 - Vendor4 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:50:40 - Vendor5 has released 2 tickets. Current released tickets: 19
+2024-12-12 05:50:40 - customer4 has bought ticket of ticketId:23. Current available tickets: 18
+2024-12-12 05:50:40 - Vendor2 has released 2 tickets. Current released tickets: 20
+2024-12-12 05:50:42 - customer5 has bought ticket of ticketId:38. Current available tickets: 19
+2024-12-12 05:50:42 - customer1 has bought ticket of ticketId:29. Current available tickets: 18
+2024-12-12 05:50:42 - Vendor1 has released 2 tickets. Current released tickets: 20
+2024-12-12 05:50:42 - customer4 has bought ticket of ticketId:25. Current available tickets: 19
+2024-12-12 05:50:42 - customer3 has bought ticket of ticketId:39. Current available tickets: 18
+2024-12-12 05:50:42 - customer2 has bought ticket of ticketId:36. Current available tickets: 17
+2024-12-12 05:50:42 - Vendor5 has released 2 tickets. Current released tickets: 19
+2024-12-12 05:52:41 - Vendor1 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:52:41 - customer5 has bought ticket of ticketId:1. Current available tickets: 1
+2024-12-12 05:52:41 - customer4 has bought ticket of ticketId:2. Current available tickets: 0
+2024-12-12 05:52:41 - No tickets available. Customer-2 is waiting...
+2024-12-12 05:52:41 - No tickets available. Customer-3 is waiting...
+2024-12-12 05:52:41 - No tickets available. Customer-1 is waiting...
+2024-12-12 05:52:41 - Vendor5 has released 2 tickets. Current released tickets: 2
+2024-12-12 05:52:41 - Vendor4 has released 2 tickets. Current released tickets: 4
+2024-12-12 05:52:41 - Vendor3 has released 2 tickets. Current released tickets: 6
+2024-12-12 05:52:41 - Vendor2 has released 2 tickets. Current released tickets: 8
+2024-12-12 05:52:41 - customer1 has bought ticket of ticketId:4. Current available tickets: 7
+2024-12-12 05:52:41 - customer3 has bought ticket of ticketId:6. Current available tickets: 6
+2024-12-12 05:52:41 - customer2 has bought ticket of ticketId:10. Current available tickets: 5
+2024-12-12 05:52:43 - Vendor1 has released 2 tickets. Current released tickets: 7
+2024-12-12 05:52:43 - Vendor4 has released 2 tickets. Current released tickets: 9
+2024-12-12 05:52:43 - customer2 has bought ticket of ticketId:12. Current available tickets: 8
+2024-12-12 05:52:43 - Vendor5 has released 2 tickets. Current released tickets: 10
+2024-12-12 05:52:43 - Vendor3 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:52:43 - customer5 has bought ticket of ticketId:15. Current available tickets: 11
+2024-12-12 05:52:43 - customer4 has bought ticket of ticketId:8. Current available tickets: 10
+2024-12-12 05:52:43 - Vendor2 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:52:43 - customer1 has bought ticket of ticketId:18. Current available tickets: 11
+2024-12-12 05:52:43 - customer3 has bought ticket of ticketId:5. Current available tickets: 10
+2024-12-12 05:52:45 - Vendor1 has released 2 tickets. Current released tickets: 12
+2024-12-12 05:52:45 - Vendor2 has released 2 tickets. Current released tickets: 14
+2024-12-12 05:52:45 - customer2 has bought ticket of ticketId:20. Current available tickets: 13
+2024-12-12 05:52:45 - Vendor4 has released 2 tickets. Current released tickets: 15
+2024-12-12 05:52:45 - Vendor5 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:52:45 - Vendor3 has released 2 tickets. Current released tickets: 19
+2024-12-12 05:52:45 - customer1 has bought ticket of ticketId:24. Current available tickets: 18
+2024-12-12 05:52:45 - customer3 has bought ticket of ticketId:30. Current available tickets: 17
+2024-12-12 05:52:45 - customer4 has bought ticket of ticketId:3. Current available tickets: 16
+2024-12-12 05:52:45 - customer5 has bought ticket of ticketId:17. Current available tickets: 15
+2024-12-12 05:52:47 - Vendor1 has released 2 tickets. Current released tickets: 17
+2024-12-12 05:52:47 - Vendor2 has released 2 tickets. Current released tickets: 19
+2024-12-12 05:52:47 - customer5 has bought ticket of ticketId:9. Current available tickets: 18
+2024-12-12 05:52:47 - customer4 has bought ticket of ticketId:19. Current available tickets: 17
+2024-12-12 05:52:47 - customer2 has bought ticket of ticketId:31. Current available tickets: 16
+2024-12-12 05:52:47 - Vendor4 has released 2 tickets. Current released tickets: 18
+2024-12-12 05:52:47 - Vendor3 has released 2 tickets. Current released tickets: 20
+2024-12-12 05:52:47 - customer1 has bought ticket of ticketId:29. Current available tickets: 19
+2024-12-12 05:52:47 - Vendor5 has released 2 tickets. Current released tickets: 21
+2024-12-12 05:52:47 - customer3 has bought ticket of ticketId:39. Current available tickets: 20
+2024-12-12 05:52:49 - Vendor1 has released 2 tickets. Current released tickets: 22
+2024-12-12 05:52:49 - Vendor2 has released 2 tickets. Current released tickets: 24
+2024-12-12 05:52:49 - Vendor4 has released 2 tickets. Current released tickets: 26
+2024-12-12 05:52:49 - customer5 has bought ticket of ticketId:22. Current available tickets: 25
+2024-12-12 05:52:49 - customer2 has bought ticket of ticketId:16. Current available tickets: 24
+2024-12-12 05:52:49 - customer4 has bought ticket of ticketId:26. Current available tickets: 23
+2024-12-12 05:52:49 - Vendor3 has released 2 tickets. Current released tickets: 25
+2024-12-12 05:52:49 - Vendor5 has released 2 tickets. Current released tickets: 27
+2024-12-12 05:52:49 - customer3 has bought ticket of ticketId:7. Current available tickets: 26
+2024-12-12 05:52:49 - customer1 has bought ticket of ticketId:41. Current available tickets: 25
+2024-12-12 05:52:51 - Vendor1 has released 2 tickets. Current released tickets: 27
+2024-12-12 05:52:51 - Vendor2 has released 2 tickets. Current released tickets: 29
+2024-12-12 05:52:51 - Vendor4 has released 2 tickets. Current released tickets: 31
+2024-12-12 05:52:51 - customer2 has bought ticket of ticketId:36. Current available tickets: 30
+2024-12-12 05:52:51 - customer5 has bought ticket of ticketId:14. Current available tickets: 29
+2024-12-12 05:52:51 - customer4 has bought ticket of ticketId:32. Current available tickets: 28
+2024-12-12 05:52:51 - customer3 has bought ticket of ticketId:51. Current available tickets: 27
+2024-12-12 05:52:51 - Vendor3 has released 2 tickets. Current released tickets: 29
+2024-12-12 05:52:51 - customer1 has bought ticket of ticketId:42. Current available tickets: 28
+2024-12-12 05:52:51 - Vendor5 has released 2 tickets. Current released tickets: 30
+2024-12-12 05:52:53 - Vendor1 has released 2 tickets. Current released tickets: 32
+2024-12-12 05:52:53 - Vendor2 has released 2 tickets. Current released tickets: 34
+2024-12-12 05:52:53 - customer4 has bought ticket of ticketId:63. Current available tickets: 33
+2024-12-12 05:52:53 - Vendor4 has released 2 tickets. Current released tickets: 35
+2024-12-12 05:52:53 - customer2 has bought ticket of ticketId:59. Current available tickets: 34
+2024-12-12 05:52:53 - customer5 has bought ticket of ticketId:11. Current available tickets: 33
+2024-12-12 05:52:53 - customer1 has bought ticket of ticketId:50. Current available tickets: 32
+2024-12-12 05:52:53 - customer3 has bought ticket of ticketId:64. Current available tickets: 31
+2024-12-12 05:52:53 - Vendor5 has released 2 tickets. Current released tickets: 33
+2024-12-12 05:52:53 - Vendor3 has released 2 tickets. Current released tickets: 35

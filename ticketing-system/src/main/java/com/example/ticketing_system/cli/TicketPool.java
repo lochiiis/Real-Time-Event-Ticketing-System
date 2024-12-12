@@ -51,7 +51,7 @@ public class TicketPool {
                 totalTicketsAdded += ticketCount;
 
 
-                String outputMsg = "Vendor" + vendorId + " has released " + ticketCount + " tickets. Currently released tickets: " + ticketList.size();
+                String outputMsg = "Vendor" + vendorId + " has released " + ticketCount + " tickets. Current released tickets: " + ticketList.size();
 
 
                 System.out.println(outputMsg);
@@ -90,7 +90,7 @@ public class TicketPool {
                 ticketList.remove(index);
 
 
-                String outputMsg= "customer"+customerId+" has bought ticket of ticketId:"+ removedTicketId +".Currently available tickets: "+ticketList.size();
+                String outputMsg= "customer"+customerId+" has bought ticket of ticketId:"+ removedTicketId +". Current available tickets: "+ticketList.size();
                 System.out.println(outputMsg);
                 config.writeLogs(outputMsg);//write the log details in text file
                 logs.add(outputMsg);//add to list of log entries

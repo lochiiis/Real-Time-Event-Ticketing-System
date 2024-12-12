@@ -19,7 +19,7 @@ function TicketSales() {
   const [logs, setLogs] = useState([]);
   const [simulationRunning, setSimulationRunning] = useState(false); // Track simulation status
 
-  // Ticket stats state
+  // State for ticket-related statistics
   const [ticketStats, setTicketStats] = useState({
     totalTickets: 0,
     ticketsReleased: 0,
@@ -27,6 +27,7 @@ function TicketSales() {
     ticketsRemaining: 0,
   });
 
+  // State for chart data used in analytics visualization
   const [chartData, setChartData] = useState({
     labels: ["Total Tickets", "Tickets Released", "Tickets Bought", "Tickets Remaining"],
     datasets: [
@@ -41,12 +42,14 @@ function TicketSales() {
     ],
   });
 
+  // Updates configuration values based on user input
   const handleChange = (e) => {
     setConfig({ ...config, [e.target.id]: e.target.value });
   };
 
+  // Starts the simulation by sending the configuration to the backend
   const startSimulation = async () => {
-    //Validate input
+    // Validate configuration values before starting the simulation
     if(
       config.totalTickets <=0 ||
       config.ticketReleaseRate <=0 ||
@@ -75,6 +78,7 @@ function TicketSales() {
     }
   };
 
+    // Stops the simulation by calling the backend API
   const stopSimulation = async () => {
     try {
       await axios.post("http://localhost:8080/api/simulation/stop");
@@ -85,6 +89,8 @@ function TicketSales() {
     }
   };
 
+
+  // Fetches logs and ticket stats from the backend and updates the state
   const fetchLogsAndUpdateStats = async () => {
     if (!simulationRunning) return; // Exit if simulation is stopped
 
@@ -118,7 +124,7 @@ function TicketSales() {
         ],
       });
 
-    // Recursively call fetchLogsAndUpdateStats for long polling
+    // continue polling for updates
     fetchLogsAndUpdateStats();
     } catch (error) {
       console.error("Error fetching logs or analytics:", error);
@@ -127,10 +133,10 @@ function TicketSales() {
 
   };
 
-  // Long polling - Initiates fetchLogsAndUpdateStats when simulation starts
+  //useEffect to manage long polling when the simulation starts or stops
   useEffect(() => {
     if (simulationRunning) {
-      fetchLogsAndUpdateStats(); // Start long polling
+      fetchLogsAndUpdateStats(); // Start fetching data if the simulation is running
     }
     return () => {
       setLogs([]); // Clear logs when simulation stops
@@ -139,6 +145,7 @@ function TicketSales() {
 
   return (
     <div className="container">
+
       <div className="column1">
         <div className="card1">
           <h2>Configurations</h2>
@@ -189,6 +196,7 @@ function TicketSales() {
           </form>
         </div> 
 
+        {/* Ticket analytics chart */}
         <div className="card2">
           <h2>Ticket Sales Analytics</h2>
           <div className="chart-container">
@@ -221,7 +229,7 @@ function TicketSales() {
             </div>
         </div>  
 
-
+        {/* Logs display */}
         <div className="card4">
           <h2>Simulation Logs</h2>
           <div className="logs">
